@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+.container__item {
+  width: 50%;
+}
+.container__item-green {
+  background-color: #55efc4;
+}
+.container__item-blue {
+  background-color: #81ecec;
+}
+
+footer {
+  background-color: #a29bfe;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
