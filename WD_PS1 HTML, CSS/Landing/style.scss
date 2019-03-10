@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
 body {
   margin: 0;
   min-height:100vh; 
@@ -34,13 +34,45 @@ body {
     justify-content: space-between;
     a{
       text-decoration: none;
+      color:grey;
+      font-weight: 500;
     }
   }
 }
-footer{
-  background-color: #a29bfe;
-  height: 100px;
-  position: absolute; 
-  width: 100%;
-  bottom: 0; 
+.iphone{
+  background-color: #63bf94;
+  .phone{
+    padding: 65px 0px;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    width: 84%;
+    margin: 0 auto;
+    justify-content: space-between;
+    &__text{
+      width: 49%;
+      color: white;
+      font-size: 18px;
+      .text{
+        margin: 40px 0px;
+      }
+      button{
+        background-color: transparent;
+        padding: 9px 29px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        border: solid 2px white;
+        border-radius: 10px;
+      }
+    }
+    &__image{
+      margin-left: 175px;
+    }
+  }
+}
+h2{
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
 }
