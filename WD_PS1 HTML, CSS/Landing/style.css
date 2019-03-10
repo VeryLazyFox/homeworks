@@ -69,8 +69,57 @@ body {
   border: solid 2px white;
   border-radius: 10px;
 }
+.iphone .phone__text button:hover {
+  color: #63bf94;
+  border-color: currentColor;
+  background-color: white;
+}
+.iphone .phone__text button:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
 .iphone .phone__image {
   margin-left: 175px;
+}
+
+.icons {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding: 67px 0px;
+}
+.icons .item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icons .item__icon {
+  border-radius: 50%;
+  background-color: #63bf94;
+  color: white;
+  border-radius: 50%;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 25px;
+}
+.icons .item__icon i {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 33px;
+}
+.icons .item__headline {
+  margin-bottom: 23px;
+}
+
+.contact {
+  padding: 50px 0;
+  display: flex;
+  background-color: #63bf94;
 }
 
 h2 {

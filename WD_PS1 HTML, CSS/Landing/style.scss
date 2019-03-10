@@ -64,12 +64,59 @@ body {
         cursor: pointer;
         border: solid 2px white;
         border-radius: 10px;
+        &:hover{
+            color: #63bf94;
+            border-color: currentColor;
+            background-color: white;
+        }
+        &:active{
+          transform: translateY(1px);
+          filter: saturate(150%);
+        }
       }
     }
     &__image{
       margin-left: 175px;
     }
   }
+}
+.icons{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding: 67px 0px;
+  .item{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__icon{
+      border-radius: 50%;
+      background-color: #63bf94;
+      color: white;
+      border-radius: 50%;
+      position: relative;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 25px;
+      i{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        font-size: 33px;
+      }
+    }
+    &__headline{
+      margin-bottom: 23px;
+    }
+  }
+}
+.contact{
+  padding: 50px 0;
+  display: flex;
+  background-color: #63bf94;
 }
 h2{
   font-size: 30px;
