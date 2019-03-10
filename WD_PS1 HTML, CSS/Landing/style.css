@@ -5,6 +5,10 @@ body {
   position: relative;
   padding-bottom: 100px;
   font-family: "Montserrat", sans-serif;
+  width: 100%;
+  max-width: 1960px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 * {
@@ -40,6 +44,9 @@ body {
   color: grey;
   font-weight: 500;
 }
+.header .navigation a:hover {
+  color: black;
+}
 
 .iphone {
   background-color: #63bf94;
@@ -60,40 +67,21 @@ body {
 .iphone .phone__text .text {
   margin: 40px 0px;
 }
-.iphone .phone__text button {
-  background-color: transparent;
-  padding: 9px 29px;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  border: solid 2px white;
-  border-radius: 10px;
-}
-.iphone .phone__text button:hover {
-  color: #63bf94;
-  border-color: currentColor;
-  background-color: white;
-}
-.iphone .phone__text button:active {
-  transform: translateY(1px);
-  filter: saturate(150%);
-}
 .iphone .phone__image {
   margin-left: 175px;
 }
 
 .icons {
   display: flex;
-  width: 90%;
-  margin: 0 auto;
+  justify-content: center;
   padding: 67px 0px;
 }
 .icons .item {
-  flex: 1;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 30%;
 }
 .icons .item__icon {
   border-radius: 50%;
@@ -117,15 +105,60 @@ body {
 }
 
 .contact {
-  padding: 50px 0;
+  padding: 85px 0;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #63bf94;
+}
+.contact .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 47%;
+  margin: 0 auto;
+}
+.contact .form__headline {
+  margin-bottom: 54px;
+}
+.contact .form input, .contact .form textarea {
+  width: 100%;
+  font-size: 22px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
 }
 
 h2 {
   font-size: 30px;
   color: white;
   font-weight: 600;
+}
+
+button, .button {
+  padding: 9px 29px;
+  margin: 0px;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  cursor: pointer;
+  border: solid 2px white;
+  border-radius: 10px;
+}
+button:hover, .button:hover {
+  color: #63bf94;
+  background-color: white;
+}
+button:active, .button:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
 }
 
 /*# sourceMappingURL=style.css.map */

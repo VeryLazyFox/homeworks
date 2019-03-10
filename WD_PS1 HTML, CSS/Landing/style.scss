@@ -1,10 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@mixin btn($bg: black, $fs: 18px, $ls: 0.5px, $clr: white, $fw: 400) {
+  padding: 9px 29px;
+  margin: 0px;
+  text-align: center;
+  color: $clr;
+  font-size: $fs;
+  letter-spacing: $ls;
+  background-color: $bg;
+  text-decoration: none;
+  font-weight: $fw;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color: #63bf94;
+    background-color: white;
+  }
+  &:active{
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+}
 body {
   margin: 0;
   min-height:100vh; 
   position:relative; 
   padding-bottom:100px;
   font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1960px;
+  margin: 0 auto;
+  padding: 0;
 }  
 * {
     box-sizing: border-box;
@@ -36,6 +62,9 @@ body {
       text-decoration: none;
       color:grey;
       font-weight: 500;
+      &:hover{
+        color: darken(grey, 80%);
+      }
     }
   }
 }
@@ -45,7 +74,6 @@ body {
     padding: 65px 0px;
     display: flex;
     align-items: center;
-    // justify-content: center;
     width: 84%;
     margin: 0 auto;
     justify-content: space-between;
@@ -56,24 +84,6 @@ body {
       .text{
         margin: 40px 0px;
       }
-      button{
-        background-color: transparent;
-        padding: 9px 29px;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        border: solid 2px white;
-        border-radius: 10px;
-        &:hover{
-            color: #63bf94;
-            border-color: currentColor;
-            background-color: white;
-        }
-        &:active{
-          transform: translateY(1px);
-          filter: saturate(150%);
-        }
-      }
     }
     &__image{
       margin-left: 175px;
@@ -82,15 +92,14 @@ body {
 }
 .icons{
   display: flex;
-  width: 90%;
-  margin: 0 auto;
+  justify-content: center;
   padding: 67px 0px;
   .item{
-    flex: 1;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 30%;
     &__icon{
       border-radius: 50%;
       background-color: #63bf94;
@@ -114,12 +123,38 @@ body {
   }
 }
 .contact{
-  padding: 50px 0;
+  padding: 85px 0;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #63bf94;
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 47%;
+    margin: 0 auto;
+    &__headline{
+      margin-bottom: 54px;
+    }
+    input,textarea{
+      width: 100%;
+      font-size: 22px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+  }
 }
 h2{
   font-size: 30px;
   color: white;
   font-weight: 600;
+}
+button, .button{
+  $values:(bg: transparent, fs: 24px, clr: white);
+  @include btn($values...);
+  cursor: pointer;
+  border: solid 2px white;
+  border-radius: 10px;
 }
