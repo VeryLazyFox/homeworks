@@ -13,12 +13,12 @@
         <p class='text'>N<span class='plus'>++</span></p>
       </div>
       <nav class='navigation'>
-          <a href="#">products</a>
-          <a href="#">about us</a>
-          <a href="#">contact us</a>
+          <a href='#products'>products</a>
+          <a href="#about us">about us</a>
+          <a href="#contact us">contact us</a>
       </nav>
     </header>
-    <section class="iphone">
+    <section id='products' class="iphone">
       <div class="phone">
         <div class="phone__image">
           <img src="img/iPhone.png" alt="iPhone">
@@ -30,7 +30,7 @@
         </div>
       </div>
     </section>
-    <section class='icons'>
+    <section id='about us' class='icons'>
       <div class="item">
         <div class="item__icon">
           <i class="fas fa-code icon"></i>
@@ -53,41 +53,40 @@
         <div class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, nisi nulla exercitationem aspernatur consectetur dolores, consequuntur magnam quam repudiandae maiores recusandae eligendi obcaecati debitis vero quasi laudantium dolorum assumenda eum?</div>
       </div>
     </section>
-    <section class="contact">
+    <section id='contact us' class="contact">
       <form class="form" action="">
           <h2 class='form__headline'>Contact us!</h2>
-          <input type="text" placeholder="Type here your name, please">
-          <input type="email" placeholder="Type here your email, please">
-          <input type="tel" placeholder="Type here your phone, please">
-          <textarea resize: none rows="3" placeholder="Ask your question"></textarea>
-          <input type="file" placeholder="Download here your file, please">
-          <input type="hidden" placeholder='it`s hidden'>
-          <input type="checkbox" id="subscribe" name="subscribe" value="newsletter">
+          <input class='input' type="text" placeholder="Type here your name, please">
+          <input class='input' type="email" placeholder="Type here your email, please">
+          <input class='input' type="tel" placeholder="Type here your phone, please">
+          <textarea class='textarea' resize: none rows="3" placeholder="Ask your question"></textarea>
+          <input class='input' type="file" placeholder="Download here your file, please">
+          <input class='input' type="hidden" placeholder='it`s hidden'>
+          <input class='input' type="checkbox" id="subscribe" name="subscribe" value="newsletter">
             <label for="subscribe">Subscribe to newsletter?</label>
-          <input type="password" placeholder='Type here your password, please '>
-          <input type="radio" name="drink" value="radio">
+          <input class='input' type="password" placeholder='Type here your password, please '>
+          <input class='input' type="radio" name="drink" value="radio">
             <label for="radio">Tea</label>
-          <input type="radio" name="drink" value="radio2">
+          <input class='input' type="radio" name="drink" value="radio2">
             <label for="radio2">Coffee</label>
 
-          <input type="color">
-          <input type="date">
-          <input type="datetime">
-          <input type="time">
-          <input type="datetime-local">
-          <input type="mounth">
-          <input type="week">
-          <input type="number">
-          <input type="range" min="1" max="10">
-          <input type="search">
-          <input type="url">
+          <input class='input' type="color">
+          <input class='input' type="date">
+          <input class='input' type="datetime">
+          <input class='input' type="time">
+          <input class='input' type="datetime-local">
+          <input class='input' type="mounth">
+          <input class='input' type="week">
+          <input class='input' type="number">
+          <input class='input' type="range" min="1" max="10">
+          <input class='input' type="search">
+          <input class='input' type="url">
 
-          <input type="image">
-          <input type="reset" class='button'>
-          <input type="submit" class='button'>
-          <input type="button" class='button'>
+          <input type="image" class='button button-contact' >
+          <input type="reset" class='button button-contact'>
+          <input type="submit" class='button button-contact'>
+          <input type="button" class='button button-contact' value='Отправить запрос'>
       </form>
-      
     </section>
   </body>
 </html>
