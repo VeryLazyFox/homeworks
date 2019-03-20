@@ -130,6 +130,9 @@ body {
   padding: 3px 10px;
   margin-bottom: 8px;
 }
+.contact .form__radio {
+  display: flex;
+}
 
 h2 {
   font-size: 30px;

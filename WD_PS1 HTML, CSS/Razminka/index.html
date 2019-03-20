@@ -34,11 +34,15 @@
     .floats__column{
       float: left;
     }
-    .flexbox__column{
+    .flexbox{
       display: flex;
     }
-    .grid__column{
-      direction: grid;
+    .flexbox__column{
+      flex: 1;
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
     } 
   </style>
 </head>
@@ -59,9 +63,9 @@
     <div class="flexbox__column column" style="background-color: #2980b9">3</div>
   </section>
   <section class="grid">
-    <div class="grid__column column" style="background-color: #f1c40f">1</div>
-    <div class="grid__column column" style="background-color: #e67e22">2</div>
-    <div class="grid__column column" style="background-color: #e74c3c">3</div>
+    <div class="column" style="background-color: #f1c40f">1</div>
+    <div class="column" style="background-color: #e67e22">2</div>
+    <div class="column" style="background-color: #e74c3c">3</div>
   </section>
 </body>
 </html>
