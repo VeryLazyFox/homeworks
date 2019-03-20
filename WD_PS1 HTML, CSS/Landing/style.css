@@ -130,8 +130,19 @@ body {
   padding: 3px 10px;
   margin-bottom: 8px;
 }
-.contact .form__radio {
-  display: flex;
+.contact .form .textarea {
+  resize: none;
+}
+.contact .form-one-line {
+  width: 100%;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+.contact .form .subscribe, .contact .form .drink {
+  width: auto;
+  padding: 0;
 }
 
 h2 {

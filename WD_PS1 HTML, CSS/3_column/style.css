@@ -13,7 +13,6 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100%;
-  margin-bottom: -50px;
 }
 .container__item {
   flex: 1;

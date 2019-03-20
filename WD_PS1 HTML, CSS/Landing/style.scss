@@ -146,8 +146,19 @@ body {
       padding: 3px 10px;
       margin-bottom: 8px;
     }
-    &__radio{
-      display: flex;
+    .textarea{
+      resize: none;
+    }
+    &-one-line{
+      width: 100%;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 10px;
+    }
+    .subscribe, .drink{
+      width: auto;
+      padding: 0;
     }
   }
 }
