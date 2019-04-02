@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
-body {
-  margin: 0;
+.wrapper {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 100px;
   font-family: "Montserrat", sans-serif;
   width: 100%;
   max-width: 1960px;
@@ -18,7 +16,7 @@ body {
 
 .header {
   display: flex;
-  width: 84%;
+  width: 85%;
   margin: 0 auto;
   justify-content: space-between;
 }
@@ -26,41 +24,43 @@ body {
   font-weight: 700;
 }
 .header__logo .text {
-  font-size: 66px;
+  font-size: 65px;
 }
 .header__logo .plus {
-  color: #63bf94;
-  font-size: 68px;
+  color: #1abc9c;
+  font-size: 70px;
 }
 .header .navigation {
-  text-transform: uppercase;
   display: flex;
   align-items: center;
-  width: 38%;
   justify-content: space-between;
 }
 .header .navigation a {
   text-decoration: none;
   color: grey;
   font-weight: 500;
+  margin-right: 35px;
+}
+.header .navigation a:last-child {
+  margin-right: 0;
 }
 .header .navigation a:hover {
   color: black;
 }
 
 .iphone {
-  background-color: #63bf94;
+  background-color: #1abc9c;
 }
 .iphone .phone {
   padding: 65px 0px;
   display: flex;
   align-items: center;
-  width: 84%;
+  width: 85%;
   margin: 0 auto;
   justify-content: space-between;
 }
 .iphone .phone__text {
-  width: 49%;
+  width: 50%;
   color: white;
   font-size: 18px;
 }
@@ -74,18 +74,22 @@ body {
 .icons {
   display: flex;
   justify-content: center;
-  padding: 67px 0px;
+  padding: 65px 0px;
 }
 .icons .item {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  flex: 1;
+  margin-right: 20px;
+}
+.icons .item:last-child {
+  margin-right: 0px;
 }
 .icons .item__icon {
   border-radius: 50%;
-  background-color: #63bf94;
+  background-color: #1abc9c;
   color: white;
   border-radius: 50%;
   position: relative;
@@ -101,7 +105,7 @@ body {
   font-size: 33px;
 }
 .icons .item__headline {
-  margin-bottom: 23px;
+  margin-bottom: 25px;
   font-weight: 700;
   color: #454343;
 }
@@ -111,24 +115,24 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #63bf94;
+  background-color: #1abc9c;
 }
 .contact .form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 47%;
+  width: 50%;
   margin: 0 auto;
 }
 .contact .form__headline {
-  margin-bottom: 54px;
+  margin-bottom: 55px;
 }
 .contact .form .input, .contact .form .textarea {
   width: 100%;
-  font-size: 22px;
+  font-size: 20px;
   padding: 3px 10px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .contact .form .textarea {
   resize: none;
@@ -152,7 +156,7 @@ h2 {
 }
 
 button, .button {
-  padding: 9px 29px;
+  padding: 10px 30px;
   margin: 0px;
   text-align: center;
   color: white;
@@ -169,7 +173,7 @@ button, .button {
   border-radius: 10px;
 }
 button:hover, .button:hover {
-  color: #63bf94;
+  color: #1abc9c;
   background-color: white;
 }
 button:active, .button:active {

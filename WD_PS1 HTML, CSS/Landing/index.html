@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -8,62 +8,63 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
   <body>
-    <header class='header'>
-      <div class="header__logo">
-        <p class='text'>N<span class='plus'>++</span></p>
-      </div>
-      <nav class='navigation'>
-          <a href='#products'>products</a>
-          <a href="#about us">about us</a>
-          <a href="#contact us">contact us</a>
-      </nav>
-    </header>
-    <section id='products' class="iphone">
-      <div class="phone">
-        <div class="phone__image">
-          <img src="img/iPhone.png" alt="iPhone">
+    <div class="wrapper">
+      <header class='header'>
+        <div class="header__logo">
+          <p class='text'>N<span class='plus'>++</span></p>
         </div>
-        <div class="phone__text">
-          <h2 class="headline">Our awsome app is ready to use!</h2>
-          <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ex distinctio nisi ratione blanditiis. Nesciunt explicabo minus officiis dolorum mollitia commodi expedita magnam eveniet, fugit alias! Quod ab quis excepturi! </p>
-          <button>Buy now</button>
+        <nav class='navigation'>
+          <a href='#products'>PRODUCTS</a>
+          <a href="#about us">ABOUT US</a>
+          <a href="#contact us">CONTACT US</a>
+        </nav>
+      </header>
+      <section id='products' class="iphone">
+        <div class="phone">
+          <div class="phone__image">
+            <img src="img/iPhone.png" alt="iPhone">
+          </div>
+          <div class="phone__text">
+            <h2 class="headline">Our awsome app is ready to use!</h2>
+            <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ex distinctio nisi ratione blanditiis. Nesciunt explicabo minus officiis dolorum mollitia commodi expedita magnam eveniet, fugit alias! Quod ab quis excepturi! </p>
+            <button>Buy now</button>
+          </div>
         </div>
-      </div>
-    </section>
-    <section id='about us' class='icons'>
-      <div class="item">
-        <div class="item__icon">
-          <i class="fas fa-code icon"></i>
+      </section>
+      <section id='about us' class='icons'>
+        <div class="item">
+          <div class="item__icon">
+            <i class="fas fa-code icon"></i>
+          </div>
+          <p class="item__headline">Web development</p>
+          <p class="item__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis fugit laboriosam porro. Facere, illo perspiciatis?
+            Repellendus in sed corporis sapiente.</p>
         </div>
-        <p class="item__headline">Web development</p>
-        <p class="item__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis fugit laboriosam porro. Facere, illo perspiciatis?
-           Repellendus in sed corporis sapiente.</p>
-      </div>
-      <div class="item">
-        <div class="item__icon">
-          <i class="fab fa-android"></i>
+        <div class="item">
+          <div class="item__icon">
+            <i class="fab fa-android"></i>
+          </div>
+          <p class="item__headline">Mobile development</p>
+          <p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorum ad cumque architecto placeat voluptate 
+            iste maxime optio molestiae quaerat.</p>
         </div>
-        <p class="item__headline">Mobile development</p>
-        <p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorum ad cumque architecto placeat voluptate 
-          iste maxime optio molestiae quaerat.</p>
-      </div>
-      <div class="item">
-        <div class="item__icon">
-          <i class="fas fa-cloud"></i>
+        <div class="item">
+          <div class="item__icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <p class="item__headline">Hightload</p>
+          <p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, nisi nulla exercitationem aspernatur consectetur
+            dolores, consequuntur magnam quam repudiandae maiores recusandae eligendi obcaecati debitis vero quasi laudantium dolorum 
+            assumenda eum?</p>
         </div>
-        <p class="item__headline">Hightload</p>
-        <p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, nisi nulla exercitationem aspernatur consectetur
-           dolores, consequuntur magnam quam repudiandae maiores recusandae eligendi obcaecati debitis vero quasi laudantium dolorum 
-           assumenda eum?</p>
-      </div>
-    </section>
-    <section id='contact us' class="contact">
-      <form class="form" action="">
+      </section>
+      <section id='contact us' class="contact">
+        <form class="form" action="">
           <h2 class='form__headline'>Contact us!</h2>
           <input class='input' type="text" placeholder="Type here your name, please">
           <input class='input' type="email" placeholder="Type here your email, please">
           <input class='input' type="tel" placeholder="Type here your phone, please">
-          <textarea class='textarea' resize: none rows="3" placeholder="Ask your question"></textarea>
+          <textarea class='textarea' rows="3" placeholder="Ask your question"></textarea>
           <input class='input' type="file" placeholder="Download here your file, please">
           <input class='input' type="hidden" placeholder='it`s hidden'>
           <div class="form-one-line">
@@ -72,10 +73,10 @@
           </div>
           <input class='input' type="password" placeholder='Type here your password, please '>
           <div class="form-one-line">
-              <input class='input drink' type="radio" name="drink" value="radio">
-              <label for="radio">Tea</label>
-          <input class='input drink' type="radio" name="drink" value="radio2">
-              <label for="radio2">Coffee</label>
+            <input class='input drink' id='tea' type="radio" name="drink" value="radio">
+            <label for="tae">Tea</label>
+            <input class='input drink' id='coffee' type="radio" name="drink" value="radio2">
+            <label for="radio2">Coffee</label>
           </div>       
           <input class='input' type="color">
           <input class='input' type="date">
@@ -88,11 +89,11 @@
           <input class='input' type="search" placeholder="It`s search">
           <input class='input' type="url" placeholder="It`s for url">
 
-
           <input type="reset" class='button button-contact'>
-          <input type="submit" class='button button-contact'>
+          <input type="submit" class='button button-contact' value='Send email'>
           <input type="button" class='button button-contact' value='Simple button'>
-      </form>
-    </section>
+        </form>
+      </section>
+    </div>
   </body>
 </html>
