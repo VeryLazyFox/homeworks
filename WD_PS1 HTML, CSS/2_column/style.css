@@ -31,4 +31,10 @@ footer {
   bottom: 0;
 }
 
+header {
+  background-color: #a29bfe;
+  height: 50px;
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */
