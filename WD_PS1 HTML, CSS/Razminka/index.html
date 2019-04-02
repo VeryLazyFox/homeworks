@@ -1,74 +1,72 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Test page</title>
-  <style media="screen">
-    body {
-      margin: 0;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    .column {
-      font-size: 4rem;
-      color: white;
-      font-weight: bold;
-      font-family: Helvetica;
-      text-align: center;
-      padding: 1rem;
-    }
-    .floats {
-      overflow: hidden;
-    }
-    .blocks{
-      font-size: 0;
-    }
-    .blocks__column{
-      display: inline-block;
-      width: 33.3%;
-    }
-    .floats__column{
-      float: left;
-      width: 33.3%;
-    }
-    .flexbox{
-      display: flex;
-    }
-    .flexbox__column{
-      flex: 1;
-    }
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    } 
-  </style>
-</head>
-<body>
-  <section class="floats">
-    <div class="floats__column column" style="background-color: #1abc9c">1</div>
-    <div class="floats__column column" style="background-color: #2ecc71">2</div>
-    <div class="floats__column column" style="background-color: #3498db">3</div>    
-  </section>
-  <section class="blocks">
-    <div class="blocks__column column" style="background-color: #f39c12">1</div>
-    <div class="blocks__column column" style="background-color: #d35400">2</div>
-    <div class="blocks__column column" style="background-color: #c0392b">3</div>
-  </section>
-  <section class="flexbox">
-    <div class="flexbox__column column" style="background-color: #16a085">1</div>
-    <div class="flexbox__column column" style="background-color: #27ae60">2</div>
-    <div class="flexbox__column column" style="background-color: #2980b9">3</div>
-  </section>
-  <section class="grid">
-    <div class="column" style="background-color: #f1c40f">1</div>
-    <div class="column" style="background-color: #e67e22">2</div>
-    <div class="column" style="background-color: #e74c3c">3</div>
-  </section>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test page</title>
+    <style media="screen">
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .column {
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+        font-family: Helvetica;
+        text-align: center;
+        padding: 1rem;
+      }
+      .floats {
+        overflow: hidden;
+      }
+      .blocks{
+        font-size: 0;
+      }
+      .blocks__column{
+        display: inline-block;
+        width: 33.3%;
+      }
+      .floats__column{
+        float: left;
+        width: 33.3%;
+      }
+      .flexbox{
+        display: flex;
+      }
+      .flexbox__column{
+        flex: 1;
+      }
+      .grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      } 
+    </style>
+  </head>
+  <body>
+    <section class="floats">
+      <div class="floats__column column" style="background-color: #1abc9c">1</div>
+      <div class="floats__column column" style="background-color: #2ecc71">2</div>
+      <div class="floats__column column" style="background-color: #3498db">3</div>    
+    </section>
+    <section class="blocks">
+      <div class="blocks__column column" style="background-color: #f39c12">1</div>
+      <div class="blocks__column column" style="background-color: #d35400">2</div>
+      <div class="blocks__column column" style="background-color: #c0392b">3</div>
+    </section>
+    <section class="flexbox">
+      <div class="flexbox__column column" style="background-color: #16a085">1</div>
+      <div class="flexbox__column column" style="background-color: #27ae60">2</div>
+      <div class="flexbox__column column" style="background-color: #2980b9">3</div>
+    </section>
+    <section class="grid">
+      <div class="column" style="background-color: #f1c40f">1</div>
+      <div class="column" style="background-color: #e67e22">2</div>
+      <div class="column" style="background-color: #e74c3c">3</div>
+    </section>
+  </body>
 </html>
 
