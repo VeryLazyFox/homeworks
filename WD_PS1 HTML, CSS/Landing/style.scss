@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
 @mixin btn($bg: black, $fs: 18px, $ls: 0.5px, $clr: white, $fw: 400) {
   padding: 10px 30px;
-  margin: 0px;
+  margin: 0;
   text-align: center;
   color: $clr;
   font-size: $fs;
@@ -10,7 +10,6 @@
   text-decoration: none;
   font-weight: $fw;
   outline: none;
-  border: none;
   cursor: pointer;
   &:hover {
     color: #1abc9c;
@@ -21,6 +20,10 @@
     filter: saturate(150%);
   }
 }
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
 .wrapper{
   min-height:100vh; 
   position:relative; 
@@ -30,10 +33,6 @@
   margin: 0 auto;
   padding: 0;
 }  
-* {
-    box-sizing: border-box;
-    margin: 0px;
-}
 .header{
   display: flex;
   width: 85%;
@@ -70,7 +69,7 @@
 .iphone{
   background-color: #1abc9c;
   .phone{
-    padding: 65px 0px;
+    padding: 65px 0;
     display: flex;
     align-items: center;
     width: 85%;
@@ -81,7 +80,7 @@
       color: white;
       font-size: 18px;
       .text{
-        margin: 40px 0px;
+        margin: 40px 0;
       }
     }
     &__image{
@@ -92,7 +91,7 @@
 .icons{
   display: flex;
   justify-content: center;
-  padding: 65px 0px;
+  padding: 65px 0;
   .item{
     text-align: center;
     display: flex;
@@ -101,13 +100,12 @@
     flex: 1;
     margin-right: 20px;
     &:last-child{
-      margin-right: 0px;
+      margin-right: 0;
     }
     &__icon{
       border-radius: 50%;
       background-color: #1abc9c;
       color: white;
-      border-radius: 50%;
       position: relative;
       width: 90px;
       height: 90px;
@@ -173,9 +171,10 @@ h2{
 button, .button{
   $values:(bg: transparent, fs: 24px, clr: white);
   @include btn($values...);
-  cursor: pointer;
   border: solid 2px white;
   border-radius: 10px;
+}
+.button{
   &-contact{
     margin-bottom: 10px;
   }

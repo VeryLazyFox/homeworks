@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 .wrapper {
   min-height: 100vh;
   position: relative;
@@ -7,11 +12,6 @@
   max-width: 1960px;
   margin: 0 auto;
   padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0px;
 }
 
 .header {
@@ -52,7 +52,7 @@
   background-color: #1abc9c;
 }
 .iphone .phone {
-  padding: 65px 0px;
+  padding: 65px 0;
   display: flex;
   align-items: center;
   width: 85%;
@@ -65,7 +65,7 @@
   font-size: 18px;
 }
 .iphone .phone__text .text {
-  margin: 40px 0px;
+  margin: 40px 0;
 }
 .iphone .phone__image {
   margin-left: 175px;
@@ -74,7 +74,7 @@
 .icons {
   display: flex;
   justify-content: center;
-  padding: 65px 0px;
+  padding: 65px 0;
 }
 .icons .item {
   text-align: center;
@@ -85,13 +85,12 @@
   margin-right: 20px;
 }
 .icons .item:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 .icons .item__icon {
   border-radius: 50%;
   background-color: #1abc9c;
   color: white;
-  border-radius: 50%;
   position: relative;
   width: 90px;
   height: 90px;
@@ -157,7 +156,7 @@ h2 {
 
 button, .button {
   padding: 10px 30px;
-  margin: 0px;
+  margin: 0;
   text-align: center;
   color: white;
   font-size: 24px;
@@ -166,8 +165,6 @@ button, .button {
   text-decoration: none;
   font-weight: 400;
   outline: none;
-  border: none;
-  cursor: pointer;
   cursor: pointer;
   border: solid 2px white;
   border-radius: 10px;
@@ -180,7 +177,8 @@ button:active, .button:active {
   transform: translateY(1px);
   filter: saturate(150%);
 }
-button-contact, .button-contact {
+
+.button-contact {
   margin-bottom: 10px;
 }
 

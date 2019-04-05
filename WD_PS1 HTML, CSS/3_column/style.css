@@ -16,6 +16,7 @@ body {
 }
 .container__item {
   flex: 1;
+  padding: 50px;
 }
 .container__item-green {
   background-color: #55efc4;

@@ -5,14 +5,15 @@ body{
   padding-bottom:100px;
 }  
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 .container{
   display: flex;
   justify-content: center;
 	min-height: 100%;
 	&__item{
-		flex: 1;
+    flex: 1;
+    padding: 50px;
 		&-green{
 			background-color: #55efc4;
 		}
