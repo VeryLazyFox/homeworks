@@ -1,38 +1,38 @@
-body{
+body {
   margin: 0;
   min-height:100vh; 
   position:relative; 
   padding-bottom:100px;
 }  
-*{
+* {
   box-sizing: border-box;
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
 	min-height: 100%;
-	&__item{
+	&__item {
     flex: 1;
     padding: 50px;
-		&-green{
+		&-green {
 			background-color: #55efc4;
 		}
-		&-blue{
+		&-blue {
 			background-color: #81ecec;
     }
-    &-mint{
+    &-mint {
       background-color: #00b894;
     }
 	}
 }
-footer{
+footer {
   background-color: #a29bfe;
   height: 100px;
   position: absolute; 
   width: 100%;
   bottom: 0; 
 }
-header{
+header {
   background-color: #a29bfe;
   height: 150px;
 }

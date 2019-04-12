@@ -7,27 +7,27 @@ body {
 * {
   box-sizing: border-box;
 }
-.container{
+.container {
 	display: flex;
 	min-height: 100%;
-	&__item{
+	&__item {
 		width: 50%;
-		&-green{
+		&-green {
 			background-color: #55efc4;
 		}
-		&-blue{
+		&-blue {
 			background-color: #81ecec;
 		}
 	}
 }
-footer{
+footer {
   background-color: #a29bfe;
   height: 100px;
   position: absolute; 
   width: 100%;
   bottom: 0; 
 }
-header{
+header {
   background-color: #a29bfe;
   height: 50px;
   width: 100%;
