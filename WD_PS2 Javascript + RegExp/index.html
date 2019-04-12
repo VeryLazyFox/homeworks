@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WarmUp</title>
+  <style>
+    .black{
+      background-color: black;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+    .white{
+      background-color: green;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <form id='first' action="">
+    <input id='unput1' type="number">
+    <input id='unput2'type="number">
+  </form>
+  <button for='first' id='submit'></button>
+  <p id='numberRezult'></p>
+
+  <form id='second' action="">
+    <input id='numberOfSeconds' type="number">
+    <p id='dateForSeconds'></p>
+    <!-- <input id='unputTime' type="time" value="01:05:20"> -->
+    <!-- <p id='ti'></p> -->
+  </form>
+  <button for='second' id='submitSecondToDate'></button>
+
+  <form id='third' action="">
+      <input id='unputTime' type="time" value="01:05:20">
+      <p id='countForSeconds'></p>
+    </form>
+    <button for='third' id='dateToSeconds'></button>
+
+  <form id='difference' action="">
+      <input id='firstDate' type="datetime-local">
+      <input id='secondDate' type="datetime-local">
+      <p id='differenceForDate'></p>
+    </form>
+    <button for='difference' id='differenceDates'></button>
+    <button id='addChessBoard'></button>
+    <div id="chessBoard"></div>
+
+    <textarea name="" id="validTextArea" cols="30" rows="10"></textarea>
+    <p id='validP'></p>
+
+    <textarea name="" id="regTextArea" cols="30" rows="10"></textarea>
+    <input id='regP'></input>
+  <script src='script.js'></script>
+</body>
+</html>
