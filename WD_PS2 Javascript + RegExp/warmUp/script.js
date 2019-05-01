@@ -4,11 +4,8 @@ let y = document.getElementById("unput2");
 let rez = document.getElementById("numberRezult");
 
 const submitSecontToDate = document.getElementById("submitSecontToDate");
-// const inputDateForSeconds = document.getElementById("dateForSeconds");
 
 buttonSubmit.addEventListener('click', () => {
-  // !!!!
-  //!!!!  с отрицателными не оаботает
   let start = x.value;
   let end = y.value;
   let sum = 0;
@@ -18,7 +15,7 @@ buttonSubmit.addEventListener('click', () => {
     [start, end] = [end, start];
   }
   for(i ; i <= end; i++){
-    if ( (i % 10) == 2 || (i % 10) == 3 || (i % 10) == 7) {
+    if ( Math.abs(i % 10) == 2 || Math.abs(i % 10) == 3 || Math.abs(i % 10) == 7) {
       sum += i;
       console.log(i);
     }
@@ -47,10 +44,6 @@ differenceDates.addEventListener('click', () => {
   let first = new Date(firstDate.value);
   let second = new Date(secondDate.value);
   let difference = second - first;  
-  // console.log(first)
-  // console.log(second)
-  // console.log(difference)
-  // differenceForDate.textContent = difference/1000;
   difference /= 1000;
   if (difference < 60) {
     differenceForDate.textContent = Math.round(difference) + ' second(s)';
@@ -81,24 +74,43 @@ differenceDates.addEventListener('click', () => {
 });
 
 addChessBoard.addEventListener('click', () => {
-  console.log('first')
-  let x=8;
-  let y=8;
-  let elem;
-
-  for (var i=0; i<y; i++){
-      var row = chessBoard.appendChild(document.createElement("div"));
-      for (var j=0; j<x; j++){
+  console.log(chessBoardInput.value)
+  let array = chessBoardInput.value.split('x')
+  let x = array[0];
+  let y = array[1];
+  chessBoard.classList.add("chessBoard");
+  if (chessBoard.childNodes.length > 0)
+    {
+      console.log(chessBoard.childNodes)
+      chessBoard.removeChild(chessBoard.firstChild)
+    }
+  let wrapper = document.createElement("div");
+  for (let i=0; i<y; i++){
+    row = wrapper.appendChild(document.createElement("div"));
+    row.classList.add("row");
+      for (let j=0; j<x; j++){
         elem = row.appendChild(document.createElement("div"));
         if ((i%2 != 0 && j%2 == 0) || (i%2 == 0 && j%2 != 0)){
           elem.classList.add("black");
+          elem.classList.add("chess");
         }
-        else elem.classList.add("white");
+        else{ 
+          elem.classList.add("white");
+          elem.classList.add("chess");
+        }
       }
   }
+  chessBoard.appendChild(wrapper);
 });
 
 validTextArea.addEventListener('blur', () => {
+  //!!!! убрать запятые
+  // проверить ссылки
+  // тисправить с одной ссылкой
+  if (validP.childNodes.length > 0)
+    {
+      validP.removeChild(validP.firstChild)
+    }
   console.log(validTextArea)
   let arrayRezult;
   let arr =  validTextArea.value;
@@ -111,17 +123,40 @@ validTextArea.addEventListener('blur', () => {
     function(x) {
       return x.replace(/http\:\/\/|https\:\/\//g,'');
     });
-  arrayRezult = [ ...new Set([...arrayIp,...arrayLink])].sort();
 
+  if (arrayIp != null && arrayLink!= null){
+    arrayRezult = [ ...new Set([...arrayIp,...arrayLink])].sort();
+  }
+  else if (arrayIp == null){
+    arrayRezult = arrayLink
+  }
+  else arrayRezult = arrayIp
+
+  let wrapper = document.createElement("div");
+
+  arrayRezult.forEach(element => {
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    let linkText = document.createTextNode(element);
+    a.appendChild(linkText);
+    a.title = "my title text";
+    a.href = '://'+element;
+    a.target = "_blank"
+    element = a;
+    console.log(element)
+    li.appendChild(a)
+    wrapper.appendChild(li)
+  });
+  validP.appendChild(wrapper)
   console.log(arrayRezult);
 });
 
 regP.addEventListener('blur', () => {
   let arr =  regTextArea.value;
   let input =  regP.value;
-
-  let newArr = arr.match(input);
-
+  let re = new RegExp(input);
+  console.log(input)
+  let newArr = arr.match(re);
 
   console.log(newArr);
 });
