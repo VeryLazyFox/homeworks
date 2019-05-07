@@ -62,55 +62,40 @@ addEventListener('input', (event) => {
   fillTable(newArray)
 })
 function sortTable(sortGoods, sort){
-  if (sort)
-  {
-    sortGoods.sort(function(a, b){
+  sortGoods.sort(function(a, b){
     let categoryA=a.category.toLowerCase(), categoryB=b.category.toLowerCase()
       if (categoryA < categoryB) //сортируем строки по возрастанию
-        return -1
+        {
+          if (sort) return -1
+            else return 1
+        }
       if (categoryA > categoryB)
-        return 1
-      return 0 // Никакой сортировки
-  })
-  }
-  else {
-    sortGoods.sort(function(a, b){
-    let categoryA=a.category.toLowerCase(), categoryB=b.category.toLowerCase()
-      if (categoryA < categoryB)
-        return 1
-      if (categoryA > categoryB)
-        return -1
+      {
+        if (sort) return 1
+          else return -1
+      }
       return 0
   })
-  }
   return sortGoods;
 }
 
 function sortTableName(sortGoods, sort){
-  if (sort)
-  {
     sortGoods.sort(function(a, b){
     let categoryA=a.name.toLowerCase(), categoryB=b.name.toLowerCase()
-      if (categoryA < categoryB) //сортируем строки по возрастанию
-        return -1
-      if (categoryA > categoryB)
-        return 1
-      return 0 // Никакой сортировки
+    if (categoryA < categoryB) //сортируем строки по возрастанию
+    {
+      if (sort) return -1
+        else return 1
+    }
+    if (categoryA > categoryB)
+    {
+      if (sort) return 1
+        else return -1
+    }
+    return 0
   })
-  }
-  else {
-    sortGoods.sort(function(a, b){
-    let categoryA=a.name.toLowerCase(), categoryB=b.name.toLowerCase()
-      if (categoryA < categoryB)
-        return 1
-      if (categoryA > categoryB)
-        return -1
-      return 0
-  })
-  }
   return sortGoods;
 }
-
 
 function fillTable(goods){
   console.log(goods)

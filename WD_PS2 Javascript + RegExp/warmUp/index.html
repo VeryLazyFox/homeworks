@@ -5,32 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WarmUp</title>
-  <style>
-    .black{
-      background-color: black;
-      width: 10px;
-      height: 10px;
-      margin: 0;
-    }
-    .white{
-      background-color: white;
-      width: 10px;
-      height: 10px;
-      margin: 0;
-    }
-    .chess{
-      margin: 0;
-    }
-    .row{
-      display: flex;
-      width: min-content;
-    }
-    .chessBoard{
-      border: 1px solid black;
-      width: min-content;
-    }
-
-  </style>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
   <p>1) Дана форма с двумя числовыми инпутами. Посчитать сумму чисел в промежутке между введеными пользователем (например от -100 до 100), суммируя только числа которые заканчиваются на 2,3, и 7
@@ -39,42 +14,41 @@
     <input id='unput1' type="number">
     <input id='unput2'type="number">
   </form>
-  <button for='first' id='submit'></button>
+  <button for='first' id='buttonSubmit'>do it</button>
   <p id='numberRezult'></p>
 
   <p>2) Пользователь вводит время в секундах. Вывести в формате: hh:mm:ss (01:05:20). Ниже наоборот: пользователь вводит время в формате hh:mm:ss, вывести количество секунд.</p>
   <form id='second' action="">
     <input id='numberOfSeconds' type="number">
     <p id='dateForSeconds'></p>
-    <!-- <input id='unputTime' type="time" value="01:05:20"> -->
-    <!-- <p id='ti'></p> -->
   </form>
-  <button for='second' id='submitSecondToDate'></button>
+  <button for='second' id='submitSecondToDate'>do it</button>
 
   
   <form id='third' action="">
       <input id='unputTime' type="time" value="01:05:20">
       <p id='countForSeconds'></p>
     </form>
-    <button for='third' id='dateToSeconds'></button>
-
+    <button for='third' id='dateToSeconds'>do it</button>
+  <p>3) Даны два input[type=datetime-local]. Вычислить промежуток времени прошедший между датами и вывести пользователю сообщение типа: 2 year(s), 1 month(s), 3 day(s), 5 hour(s), 10 minute(s), 15 second(s).</p>
   <form id='difference' action="">
-      <input id='firstDate' type="datetime-local">
-      <input id='secondDate' type="datetime-local">
-      <p id='differenceForDate'></p>
-    </form>
-    <button for='difference' id='differenceDates'></button>
-    <p>4) Пользователь вводит габариты шахматной доски (в формате ‘8x8’). Вывести (как бы нарисовать) шахматную доску.</p>
-    <input type="text" id="chessBoardInput">
-    <button id='addChessBoard'></button>
-    <div id="chessBoard"></div>
-
-    <p>5)Дан некий textarea, в который пользователь вводит ссылки или ip через запятую. Когда textarea станет неактивным - проверить введены ли ссылки/ip, удалить дичь (то что не ссылки и не ip), и вывести их отсортированным по алфавиту списком ссылок (Пользователю http:// и https:// не показывать, при клике на ссылку открывается новое окно).</p>
-    <textarea name="" id="validTextArea" cols="30" rows="10"></textarea>
-    <ul id='validP'></ul>
-
-    <textarea name="" id="regTextArea" cols="30" rows="10"></textarea>
-    <input id='regP'></input>
+    <input id='firstDate' type="datetime-local">
+    <input id='secondDate' type="datetime-local">
+    <p id='differenceForDate'></p>
+  </form>
+  <button for='difference' id='differenceDates'>do it</button>
+  <p>4) Пользователь вводит габариты шахматной доски (в формате ‘8x8’). Вывести (как бы нарисовать) шахматную доску.</p>
+  <input type="text" id="chessBoardInput">
+  <button id='addChessBoard'>do it</button>
+  <div id="chessBoard"></div>
+  <p>5)Дан некий textarea, в который пользователь вводит ссылки или ip через запятую. Когда textarea станет неактивным - проверить введены ли ссылки/ip, удалить дичь (то что не ссылки и не ip), и вывести их отсортированным по алфавиту списком ссылок (Пользователю http:// и https:// не показывать, при клике на ссылку открывается новое окно).</p>
+  <textarea name="" id="validTextArea" cols="30" rows="10"></textarea>
+  <ul id='validP'></ul>
+  <p> 6) В textarea вводим текст, в input - регулярку или текст. После нажатии кнопки - вывести тот же текст, но в нем все, что подходит под регулярку выделено желтым (подсвечено).</p>
+  <textarea name="" id="regTextArea" cols="30" rows="10"></textarea>
+  <input id='regP'></input>
+  <button id='validButton'>do it</button>
+  <div id="validRezult"></div>
   <script src='script.js'></script>
 </body>
 </html>

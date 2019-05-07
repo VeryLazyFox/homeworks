@@ -1,0 +1,23 @@
+.black{
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+}
+.white{
+  background-color: white;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+}
+.chess{
+  margin: 0;
+}
+.row{
+  display: flex;
+  width: min-content;
+}
+.chessBoard{
+  border: 1px solid black;
+  width: min-content;
+}

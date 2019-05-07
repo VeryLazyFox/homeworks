@@ -1,23 +1,22 @@
-const buttonSubmit = document.getElementById("submit");
-let x = document.getElementById("unput1");
-let y = document.getElementById("unput2");
-let rez = document.getElementById("numberRezult");
 
-const submitSecontToDate = document.getElementById("submitSecontToDate");
 
 buttonSubmit.addEventListener('click', () => {
+  const buttonSubmit = document.getElementById("submit");
+  let x = document.getElementById("unput1");
+  let y = document.getElementById("unput2");
+  let rez = document.getElementById("numberRezult");
+  
   let start = x.value;
   let end = y.value;
   let sum = 0;
-  let i = -10;
-  console.log(start);
+  let i = start;
   if(start > end){
     [start, end] = [end, start];
   }
   for(i ; i <= end; i++){
     if ( Math.abs(i % 10) == 2 || Math.abs(i % 10) == 3 || Math.abs(i % 10) == 7) {
       sum += i;
-      console.log(i);
+      // console.log(i);
     }
   }
   rez.textContent = sum;
@@ -104,23 +103,20 @@ addChessBoard.addEventListener('click', () => {
 });
 
 validTextArea.addEventListener('blur', () => {
-  //!!!! убрать запятые
-  // проверить ссылки
-  // тисправить с одной ссылкой
   if (validP.childNodes.length > 0)
     {
       validP.removeChild(validP.firstChild)
     }
   console.log(validTextArea)
   let arrayRezult;
-  let arr =  validTextArea.value;
+  let arr =  validTextArea.value.split(',');
 
   let regexpIp = /([0-9]{1,3}[\.]){3}[0-9]{1,3}/g;
   let regexpLink = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/g;
 
-  let arrayIp = arr.match(regexpIp);
-  let arrayLink = arr.match(regexpLink).map(
-    function(x) {
+  let arrayIp = arr.filter(item => item.match(regexpIp));
+  let arrayLink = arr.filter(item => item.match(regexpLink)).map(
+    x => {
       return x.replace(/http\:\/\/|https\:\/\//g,'');
     });
 
@@ -139,8 +135,7 @@ validTextArea.addEventListener('blur', () => {
     let a = document.createElement('a');
     let linkText = document.createTextNode(element);
     a.appendChild(linkText);
-    a.title = "my title text";
-    a.href = '://'+element;
+    a.href = '//'+element;
     a.target = "_blank"
     element = a;
     console.log(element)
@@ -151,12 +146,15 @@ validTextArea.addEventListener('blur', () => {
   console.log(arrayRezult);
 });
 
-regP.addEventListener('blur', () => {
+validButton.addEventListener('click', () => {
   let arr =  regTextArea.value;
   let input =  regP.value;
-  let re = new RegExp(input);
-  console.log(input)
-  let newArr = arr.match(re);
 
-  console.log(newArr);
+  let newArr = replaceAll(arr, input, "<mark>"+"$&"+"</mark>")
+
+  validRezult.innerHTML = newArr;
+
+  function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
 });
