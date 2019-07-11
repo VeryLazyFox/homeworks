@@ -11,32 +11,31 @@
   <p>1) Дана форма с двумя числовыми инпутами. Посчитать сумму чисел в промежутке между введеными пользователем (например от -100 до 100), суммируя только числа которые заканчиваются на 2,3, и 7
     </p>
   <form id="first" action="">
-    <input id="unput1" type="number">
-    <input id="unput2"type="number">
+    <input min="-9999" max="9999" id="input1" type="number">
+    <input min="-9999" max="9999" id="input2" type="number">
+    <button id="buttonSubmit" type="button">do it</button>
+    <p id="numberRezult"></p>
   </form>
-  <button for="first" id="buttonSubmit">do it</button>
-  <p id="numberRezult"></p>
 
   <p>2) Пользователь вводит время в секундах. Вывести в формате: hh:mm:ss (01:05:20). Ниже наоборот: пользователь вводит время в формате hh:mm:ss, вывести количество секунд.</p>
   <form id="second" action="">
-    <input id="numberOfSeconds" type="number">
+    <input id="numberOfSeconds" type="number" min="0" max="99999">
     <p id="dateForSeconds"></p>
+    <button id="submitSecondToDate" type="button">do it</button>
   </form>
-  <button for="second" id="submitSecondToDate">do it</button>
-
   
   <form id="third" action="">
-      <input id="unputTime" type="time" value="01:05:20">
+      <input id="inputTime" type="time" value="00:00:20">
       <p id="countForSeconds"></p>
     </form>
-    <button for="third" id="dateToSeconds">do it</button>
+    <button id="dateToSeconds">do it</button>
   <p>3) Даны два input[type=datetime-local]. Вычислить промежуток времени прошедший между датами и вывести пользователю сообщение типа: 2 year(s), 1 month(s), 3 day(s), 5 hour(s), 10 minute(s), 15 second(s).</p>
   <form id="difference" action="">
     <input id="firstDate" type="datetime-local">
     <input id="secondDate" type="datetime-local">
     <p id="differenceForDate"></p>
   </form>
-  <button for="difference" id="differenceDates">do it</button>
+  <button id="differenceDates">do it</button>
   <p>4) Пользователь вводит габариты шахматной доски (в формате ‘8x8’). Вывести (как бы нарисовать) шахматную доску.</p>
   <input type="text" id="chessBoardInput">
   <button id="addChessBoard">do it</button>
@@ -46,7 +45,7 @@
   <ul id="validP"></ul>
   <p> 6) В textarea вводим текст, в input - регулярку или текст. После нажатии кнопки - вывести тот же текст, но в нем все, что подходит под регулярку выделено желтым (подсвечено).</p>
   <textarea name="" id="regTextArea" cols="30" rows="10"></textarea>
-  <input id="regP"></input>
+  <input id="regP">
   <button id="validButton">do it</button>
   <div id="validRezult"></div>
   <script src="script.js"></script>

@@ -1,86 +1,120 @@
-
-
 buttonSubmit.addEventListener('click', () => {
-  const buttonSubmit = document.getElementById("submit");
-  let x = document.getElementById("unput1");
-  let y = document.getElementById("unput2");
+  let x = document.getElementById("input1");
+  let y = document.getElementById("input2");
   let rez = document.getElementById("numberRezult");
   
-  let start = x.value;
-  let end = y.value;
+  let start = Number(x.value);
+  let end = Number(y.value);
   let sum = 0;
-  let i = start;
-  if(start > end){
-    [start, end] = [end, start];
-  }
-  for(i ; i <= end; i++){
-    if ( Math.abs(i % 10) == 2 || Math.abs(i % 10) == 3 || Math.abs(i % 10) == 7) {
-      sum += i;
-      // console.log(i);
+  let i;
+  if (x.validity.valid && y.validity.valid) {
+      if(start > end){
+        [start, end] = [end, start];
+      }
+      i = start;
+      for(i ; i <= end; i++){
+        let q = Number(i)
+        if ( Math.abs(q % 10) == 2 || Math.abs(q % 10) == 3 || Math.abs(q % 10) == 7) {
+          sum += q;
+        }
+      rez.textContent = sum;
     }
   }
-  rez.textContent = sum;
-  sum = 0;
 });
 
 submitSecondToDate.addEventListener('click', () => {
-  var date = new Date(null);
-  console.log(date)
-  date.setSeconds(numberOfSeconds.value);
-  var seconds = date.toISOString().substr(11, 8);
-  dateForSeconds.textContent = seconds;
+  if (second.numberOfSeconds.validity.valid) {
+    let date = new Date(null);
+    date.setSeconds(numberOfSeconds.value);
+    dateForSeconds.textContent = date.toISOString().substr(11, 8);
+  }
 });
 
 dateToSeconds.addEventListener('click', () => {
-  let time = new Date();
-  time = unputTime.valueAsDate;
+  // let time = new Date();
+  let time = inputTime.valueAsDate;
+  let userTimezoneOffset = time.getTimezoneOffset() * 60000;
+  console.log(new Date(time.getTime() - userTimezoneOffset).getHours())
+  console.log("time " + time)
+  console.log("time " + time.getHours())
+  console.log("time " + time.getMinutes())
+  console.log("time " + time.getSeconds())
   let seconds = time.getHours()*24*60 + time.getMinutes()*60 + time.getSeconds();
-  console.log(seconds)
   countForSeconds.textContent = seconds;
+
+  // лишние объявления и, по-моему, функция делает что-то не то. Попробуйте использовать другой инпут
+  // а должно быть (1час3600 + 560 + 20) = 3920
+
+
 });
 
 differenceDates.addEventListener('click', () => {
   let first = new Date(firstDate.value);
   let second = new Date(secondDate.value);
-  let difference = second - first;  
+  // let difference = second - first;
+  console.log("difference")
+  console.log(first)
+  if ( isNaN(first)) {
+    differenceForDate.textContent = "first date is invalid" ;
+    return;
+  }
+
+  if ( first < second) {
+    differenceForDate.textContent = "first date must be less than second" ;
+    return;
+  }
+
+  let difference = second - first;
   difference /= 1000;
+  console.log(difference)
+
+  if ( isNaN(difference)) {
+    differenceForDate.textContent = "error" ;
+    return;
+  }
   if (difference < 60) {
     differenceForDate.textContent = Math.round(difference) + ' second(s)';
     return;
   }
   difference /= 60;
+  console.log(difference)
   if (difference < 60) {
     differenceForDate.textContent = Math.round(difference) + ' minute(s)';
     return;
   }
   difference /= 60;
+  console.log(difference)
   if (difference < 24) {
     differenceForDate.textContent = Math.round(difference) + ' hour(s)';
     return;
   }
   difference /= 24;
+  console.log(difference)
   if (difference < 30) {
     differenceForDate.textContent = Math.round(difference) + ' day(s)';
     return;
   }
   difference /= 30;
+  console.log(difference)
   if (difference < 12) {
     differenceForDate.textContent = Math.round(difference) + ' month(s)';
     return;
   }
-  difference /= 12;
-  differenceForDate.textContent = Math.round(difference) + ' year(s)';
+  else{
+    difference /= 12;
+    console.log(difference)
+    differenceForDate.textContent = Math.round(difference) + ' year(s)';
+  }
+  
 });
 
 addChessBoard.addEventListener('click', () => {
-  console.log(chessBoardInput.value)
   let array = chessBoardInput.value.split('x')
   let x = array[0];
   let y = array[1];
   chessBoard.classList.add("chessBoard");
   if (chessBoard.childNodes.length > 0)
     {
-      console.log(chessBoard.childNodes)
       chessBoard.removeChild(chessBoard.firstChild)
     }
   let wrapper = document.createElement("div");
@@ -89,7 +123,7 @@ addChessBoard.addEventListener('click', () => {
     row.classList.add("row");
       for (let j=0; j<x; j++){
         elem = row.appendChild(document.createElement("div"));
-        if ((i%2 != 0 && j%2 == 0) || (i%2 == 0 && j%2 != 0)){
+        if ((i%2 != 0 && j%2 === 0) || (i%2 === 0 && j%2 != 0)){
           elem.classList.add("black");
           elem.classList.add("chess");
         }
@@ -107,7 +141,6 @@ validTextArea.addEventListener('blur', () => {
     {
       validP.removeChild(validP.firstChild)
     }
-  console.log(validTextArea)
   let arrayRezult;
   let arr =  validTextArea.value.split(',');
 
@@ -138,12 +171,10 @@ validTextArea.addEventListener('blur', () => {
     a.href = '//'+element;
     a.target = "_blank"
     element = a;
-    console.log(element)
     li.appendChild(a)
     wrapper.appendChild(li)
   });
   validP.appendChild(wrapper)
-  console.log(arrayRezult);
 });
 
 validButton.addEventListener('click', () => {
