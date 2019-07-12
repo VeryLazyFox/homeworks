@@ -36,70 +36,68 @@ const GOODS = [
     price: 3
   }
 ];
-
 fillTable(GOODS)
 let goods = GOODS;
 let sortCategory = true;
 
 category.addEventListener('click', () => {
-  fillTable(sortTable(goods, sortCategory))
+  fillTable(sortTable(goods, sortCategory));
   sortCategory = !sortCategory;
-})
+});
 
 nameTable.addEventListener('click', () => {
-  fillTable(sortTableName(goods, sortCategory))
+  fillTable(sortTableName(goods, sortCategory));
   sortCategory = !sortCategory;
-})
+});
 
 filterSelectCategory.addEventListener('change', (event) => {
   let newArray = goods.filter(item => item.category == event.target.value);
-  fillTable(newArray)
-})
+  fillTable(newArray);
+});
 
 filterInputName
 addEventListener('input', (event) => {
   let newArray = goods.filter(item => item.name.match(event.target.value));
-  fillTable(newArray)
-})
+  fillTable(newArray);
+});
+
 function sortTable(sortGoods, sort){
   sortGoods.sort(function(a, b){
     let categoryA=a.category.toLowerCase(), categoryB=b.category.toLowerCase()
       if (categoryA < categoryB) //сортируем строки по возрастанию
         {
-          if (sort) return -1
-            else return 1
+          if (sort) return -1;
+            else return 1;
         }
       if (categoryA > categoryB)
       {
-        if (sort) return 1
-          else return -1
+        if (sort) return 1;
+          else return -1;
       }
-      return 0
+      return 0;
   })
   return sortGoods;
-}
+};
 
 function sortTableName(sortGoods, sort){
     sortGoods.sort(function(a, b){
     let categoryA=a.name.toLowerCase(), categoryB=b.name.toLowerCase()
     if (categoryA < categoryB) //сортируем строки по возрастанию
     {
-      if (sort) return -1
-        else return 1
+      if (sort) return -1;
+        else return 1;
     }
     if (categoryA > categoryB)
     {
-      if (sort) return 1
-        else return -1
+      if (sort) return 1;
+        else return -1;
     }
-    return 0
+    return 0;
   })
   return sortGoods;
-}
+};
 
 function fillTable(goods){
-  console.log(goods)
-  console.log(table.childNodes.length)
 if (table.childNodes.length > 3)
   {
     table.removeChild(table.lastChild)
@@ -108,18 +106,13 @@ if (table.childNodes.length > 3)
 let totalPrice = 0;
 let wrapper = document.createElement("tbody");
 goods.forEach(element => {
-  console.log(element)
   let row = wrapper.appendChild(document.createElement("tr"));
-
   let category = row.appendChild(document.createElement("td"));
   category.appendChild(document.createTextNode(element.category));
-
   let name = row.appendChild(document.createElement("td"));
   name.appendChild(document.createTextNode(element.name));
-
   let amount = row.appendChild(document.createElement("td"));
   amount.appendChild(document.createTextNode(element.amount));
-
   let price = row.appendChild(document.createElement("td"));
   price.appendChild(document.createTextNode(element.price));
   totalPrice += element.price;
@@ -127,13 +120,10 @@ goods.forEach(element => {
 let tfoot = document.createElement("tfoot");
 tfoot.appendChild(document.createElement("th"));
 tfoot.appendChild(document.createElement("th"));
-
 let costText = tfoot.appendChild(document.createElement("th"));
 costText.appendChild(document.createTextNode('Total:'));
-
 let cost = tfoot.appendChild(document.createElement("th"));
 cost.appendChild(document.createTextNode(totalPrice + '$'));
-
 table.appendChild(wrapper);
 table.appendChild(tfoot);
-}
+};

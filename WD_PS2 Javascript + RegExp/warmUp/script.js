@@ -1,98 +1,121 @@
-
-
 buttonSubmit.addEventListener('click', () => {
-  const buttonSubmit = document.getElementById("submit");
-  let x = document.getElementById("unput1");
-  let y = document.getElementById("unput2");
+  let x = document.getElementById("input1");
+  let y = document.getElementById("input2");
   let rez = document.getElementById("numberRezult");
   
-  let start = x.value;
-  let end = y.value;
+  let start = Number(x.value);
+  let end = Number(y.value);
   let sum = 0;
-  let i = start;
-  if(start > end){
-    [start, end] = [end, start];
-  }
-  for(i ; i <= end; i++){
-    if ( Math.abs(i % 10) == 2 || Math.abs(i % 10) == 3 || Math.abs(i % 10) == 7) {
-      sum += i;
-      // console.log(i);
+  let i;
+  if (x.validity.valid && y.validity.valid) {
+      if(start > end){
+        [start, end] = [end, start];
+      }
+      i = start;
+      for(i ; i <= end; i++){
+        let q = Number(i)
+        if ( Math.abs(q % 10) == 2 || Math.abs(q % 10) == 3 || Math.abs(q % 10) == 7) {
+          sum += q;
+        }
+      rez.textContent = sum;
     }
   }
-  rez.textContent = sum;
-  sum = 0;
 });
 
 submitSecondToDate.addEventListener('click', () => {
-  var date = new Date(null);
-  console.log(date)
-  date.setSeconds(numberOfSeconds.value);
-  var seconds = date.toISOString().substr(11, 8);
-  dateForSeconds.textContent = seconds;
+  if (second.numberOfSeconds.validity.valid) {
+    let date = new Date(null);
+    date.setSeconds(numberOfSeconds.value);
+    dateForSeconds.textContent = date.toISOString().substr(11, 8);
+  }
 });
 
 dateToSeconds.addEventListener('click', () => {
-  // let arrayOfTime = unputTime.value.split(':')
-  // console.log(arrayOfTime, 'qwe') 
-  // let seconds = parseInt(arrayOfTime[0]*60*60) + parseInt(arrayOfTime[1]*60) + parseInt(arrayOfTime[2]);
-  // console.log(seconds)
-  let seconds = (unputTime.valueAsNumber / 1000 )
+  let seconds = (inputTime.valueAsNumber / 1000 )
   countForSeconds.textContent = seconds;
 });
 
 differenceDates.addEventListener('click', () => {
   let first = new Date(firstDate.valueAsNumber);
   let second = new Date(secondDate.valueAsNumber);
+  
+  let difference = Math.abs((second - first)/1000); // to seconds
 
-  let difference = (second - first)/1000; // to seconds
-  console.log(difference, 'difference')
+  if ( isNaN(first)) {
+    differenceForDate.textContent = "first date is invalid" ;
+    return;
+  }
 
+  if ( isNaN(second)) {
+    differenceForDate.textContent = "second date is invalid" ;
+    return;
+  }
+
+  if ( isNaN(difference)) {
+    differenceForDate.textContent = "error" ;
+    return;
+  }
   if (difference < 60) {
     differenceForDate.textContent = Math.round(difference) + ' second(s)';
     return;
   }
   difference /= 60;
+  console.log(difference)
   if (difference < 60) {
     differenceForDate.textContent = Math.round(difference) + ' minute(s)';
     return;
   }
   difference /= 60;
+  console.log(difference)
   if (difference < 24) {
     differenceForDate.textContent = Math.round(difference) + ' hour(s)';
     return;
   }
   difference /= 24;
+  console.log(difference)
   if (difference < 30) {
     differenceForDate.textContent = Math.round(difference) + ' day(s)';
     return;
   }
   difference /= 30;
+  console.log(difference)
   if (difference < 12) {
     differenceForDate.textContent = Math.round(difference) + ' month(s)';
     return;
   }
-  difference /= 12;
-  differenceForDate.textContent = Math.round(difference) + ' year(s)';
+  else{
+    difference /= 12;
+    console.log(difference)
+    differenceForDate.textContent = Math.round(difference) + ' year(s)';
+  }
 });
 
 addChessBoard.addEventListener('click', () => {
-  console.log(chessBoardInput.value)
+  chessBoardSpan.textContent = ""
   let array = chessBoardInput.value.split('x')
   let x = array[0];
   let y = array[1];
+  if ( !x || !y ){
+    chessBoardSpan.textContent = "invalid input syntax"
+    return;
+  }
+  if ( x > 1000 || y > 1000 ){
+    chessBoardSpan.textContent = "numbers must by less"
+    return;
+  }
+
   chessBoard.classList.add("chessBoard");
   if (chessBoard.childNodes.length > 0)
     {
-      console.log(chessBoard.childNodes)
       chessBoard.removeChild(chessBoard.firstChild)
     }
   let wrapper = document.createElement("div");
-  for (let i=0; i<y; i++){
+  for (let rowCounter=0; rowCounter<y; rowCounter++){
     row = wrapper.appendChild(document.createElement("div"));
     row.classList.add("row");
-      for (let j=0; j<x; j++){
+      for (let columnCounter=0; columnCounter<x; columnCounter++){
         elem = row.appendChild(document.createElement("div"));
-        if ((i%2 != 0 && j%2 == 0) || (i%2 == 0 && j%2 != 0)){
+        if ((rowCounter%2 != 0 && columnCounter%2 === 0) || (rowCounter%2 === 0 && columnCounter%2 != 0)){
           elem.classList.add("black");
           elem.classList.add("chess");
         }
@@ -155,18 +178,19 @@ validTextArea.addEventListener('blur', () => {
     wrapper.appendChild(li)
   });
   validP.appendChild(wrapper)
-  console.log(arrayRezult);
 });
 
 validButton.addEventListener('click', () => {
   let arr =  regTextArea.value;
   let input =  regP.value;
 
-  let newArr = replaceAll(arr, input, "<mark>"+"$&"+"</mark>")
+  let newArr = replaceAll(arr, '<', "&lt;")
+  newArr = replaceAll(newArr, '>', "&gt;")
+  newArr = replaceAll(newArr, input, "<mark>"+"$&"+"</mark>")
 
   validRezult.innerHTML = newArr;
 
   function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, 'g'), replace);
-}
+  }
 });

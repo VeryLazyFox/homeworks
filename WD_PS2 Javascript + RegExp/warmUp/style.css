@@ -21,3 +21,13 @@
   border: 1px solid black;
   width: min-content;
 }
+input:invalid{
+  border: 1px solid red;
+}
+hr{
+  margin: 40px 0;
+  /* height: 3px; */
+}
+body{
+  margin: 50px 20px;
+}
