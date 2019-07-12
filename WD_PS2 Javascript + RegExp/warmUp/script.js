@@ -32,18 +32,21 @@ submitSecondToDate.addEventListener('click', () => {
 });
 
 dateToSeconds.addEventListener('click', () => {
-  let time = new Date();
-  time = unputTime.valueAsDate;
-  let seconds = time.getHours()*24*60 + time.getMinutes()*60 + time.getSeconds();
-  console.log(seconds)
+  // let arrayOfTime = unputTime.value.split(':')
+  // console.log(arrayOfTime, 'qwe') 
+  // let seconds = parseInt(arrayOfTime[0]*60*60) + parseInt(arrayOfTime[1]*60) + parseInt(arrayOfTime[2]);
+  // console.log(seconds)
+  let seconds = (unputTime.valueAsNumber / 1000 )
   countForSeconds.textContent = seconds;
 });
 
 differenceDates.addEventListener('click', () => {
-  let first = new Date(firstDate.value);
-  let second = new Date(secondDate.value);
-  let difference = second - first;  
-  difference /= 1000;
+  let first = new Date(firstDate.valueAsNumber);
+  let second = new Date(secondDate.valueAsNumber);
+
+  let difference = (second - first)/1000; // to seconds
+  console.log(difference, 'difference')
+
   if (difference < 60) {
     differenceForDate.textContent = Math.round(difference) + ' second(s)';
     return;
@@ -107,13 +110,20 @@ validTextArea.addEventListener('blur', () => {
     {
       validP.removeChild(validP.firstChild)
     }
-  console.log(validTextArea)
+  // console.log(validTextArea)
   let arrayRezult;
   let arr =  validTextArea.value.split(',');
 
-  let regexpIp = /([0-9]{1,3}[\.]){3}[0-9]{1,3}/g;
-  let regexpLink = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/g;
+  // let regexpIp = /([0-9]{1,3}[\.]){3}[0-9]{1,3}/g;
+  // let regexpLink = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/g;
+  let regexpIp = /(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/g;
+  let regexpLink = /((http|https|ftp|ftps)\:\/\/)|(www\.)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/gi;
 
+// http://ru.stackoverflow.com, www.ru.stackoverflow.com, ru.stackoverflow.com,
+// 4444.11.11.11,
+// 192.168.1.1,
+// 1.1.1.1,
+// 115.42.150.37
   let arrayIp = arr.filter(item => item.match(regexpIp));
   let arrayLink = arr.filter(item => item.match(regexpLink)).map(
     x => {
@@ -122,6 +132,8 @@ validTextArea.addEventListener('blur', () => {
 
   if (arrayIp != null && arrayLink!= null){
     arrayRezult = [ ...new Set([...arrayIp,...arrayLink])].sort();
+    console.log(arrayIp)
+    console.log(arrayLink)
   }
   else if (arrayIp == null){
     arrayRezult = arrayLink
@@ -138,7 +150,7 @@ validTextArea.addEventListener('blur', () => {
     a.href = '//'+element;
     a.target = "_blank"
     element = a;
-    console.log(element)
+    // console.log(element)
     li.appendChild(a)
     wrapper.appendChild(li)
   });
