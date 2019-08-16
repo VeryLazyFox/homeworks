@@ -1,11 +1,11 @@
 buttonSubmit.addEventListener('click', () => {
-  let x = document.getElementById("input1");
-  let y = document.getElementById("input2");
-  let rez = document.getElementById("numberRezult");
+  const x = document.getElementById("input1");
+  const y = document.getElementById("input2");
+  const rez = document.getElementById("numberRezult");
   
-  let start = Number(x.value);
-  let end = Number(y.value);
-  let sum = 0;
+  const start = Number(x.value);
+  const end = Number(y.value);
+  const sum = 0;
   let i;
   if (x.validity.valid && y.validity.valid) {
       if(start > end){
@@ -14,7 +14,8 @@ buttonSubmit.addEventListener('click', () => {
       i = start;
       for(i ; i <= end; i++){
         let q = Number(i)
-        if ( Math.abs(q % 10) == 2 || Math.abs(q % 10) == 3 || Math.abs(q % 10) == 7) {
+        let absQ = Math.abs(q % 10)
+        if ( absQ === 2 || absQ === 3 || absQ === 7) {
           sum += q;
         }
       rez.textContent = sum;
@@ -24,77 +25,44 @@ buttonSubmit.addEventListener('click', () => {
 
 submitSecondToDate.addEventListener('click', () => {
   if (second.numberOfSeconds.validity.valid) {
-    let date = new Date(null);
+    const date = new Date(null);
     date.setSeconds(numberOfSeconds.value);
     dateForSeconds.textContent = date.toISOString().substr(11, 8);
   }
 });
 
 dateToSeconds.addEventListener('click', () => {
-  let seconds = (inputTime.valueAsNumber / 1000 )
+  const seconds = (inputTime.valueAsNumber / 1000 )
   countForSeconds.textContent = seconds;
 });
 
 differenceDates.addEventListener('click', () => {
-  let first = new Date(firstDate.valueAsNumber);
-  let second = new Date(secondDate.valueAsNumber);
-  
-  let difference = Math.abs((second - first)/1000); // to seconds
+  const first = new Date(firstDate.value);
+  const second = new Date(secondDate.value);
 
   if ( isNaN(first)) {
     differenceForDate.textContent = "first date is invalid" ;
     return;
   }
-
   if ( isNaN(second)) {
     differenceForDate.textContent = "second date is invalid" ;
     return;
   }
-
-  if ( isNaN(difference)) {
-    differenceForDate.textContent = "error" ;
-    return;
-  }
-  if (difference < 60) {
-    differenceForDate.textContent = Math.round(difference) + ' second(s)';
-    return;
-  }
-  difference /= 60;
-  console.log(difference)
-  if (difference < 60) {
-    differenceForDate.textContent = Math.round(difference) + ' minute(s)';
-    return;
-  }
-  difference /= 60;
-  console.log(difference)
-  if (difference < 24) {
-    differenceForDate.textContent = Math.round(difference) + ' hour(s)';
-    return;
-  }
-  difference /= 24;
-  console.log(difference)
-  if (difference < 30) {
-    differenceForDate.textContent = Math.round(difference) + ' day(s)';
-    return;
-  }
-  difference /= 30;
-  console.log(difference)
-  if (difference < 12) {
-    differenceForDate.textContent = Math.round(difference) + ' month(s)';
-    return;
-  }
-  else{
-    difference /= 12;
-    console.log(difference)
-    differenceForDate.textContent = Math.round(difference) + ' year(s)';
-  }
+  differenceForDate.textContent = (`
+    ${Math.abs(first.getFullYear() - second.getFullYear())} year(s),
+    ${Math.abs(first.getMonth() - second.getMonth())} month(s),
+    ${Math.abs(first.getDate() - second.getDate())} day(s),
+    ${Math.abs(first.getHours() - second.getHours())} hour(s),
+    ${Math.abs(first.getMinutes() - second.getMinutes())} minute(s),
+    ${Math.abs(first.getSeconds() - second.getSeconds())} second(s)
+    `);
 });
 
 addChessBoard.addEventListener('click', () => {
   chessBoardSpan.textContent = ""
-  let array = chessBoardInput.value.split('x')
-  let x = array[0];
-  let y = array[1];
+  const array = chessBoardInput.value.split('x')
+  const x = array[0];
+  const y = array[1];
   if ( !x || !y ){
     chessBoardSpan.textContent = "invalid input syntax"
     return;
@@ -104,18 +72,20 @@ addChessBoard.addEventListener('click', () => {
     return;
   }
 
-  chessBoard.classList.add("chessBoard");
+  chessBoard.classList.add("chess-board");
   if (chessBoard.childNodes.length > 0)
     {
       chessBoard.removeChild(chessBoard.firstChild)
     }
-  let wrapper = document.createElement("div");
+  const wrapper = document.createElement("div");
   for (let rowCounter=0; rowCounter<y; rowCounter++){
     row = wrapper.appendChild(document.createElement("div"));
     row.classList.add("row");
       for (let columnCounter=0; columnCounter<x; columnCounter++){
         elem = row.appendChild(document.createElement("div"));
-        if ((rowCounter%2 != 0 && columnCounter%2 === 0) || (rowCounter%2 === 0 && columnCounter%2 != 0)){
+        let rCounter  = rowCounter%2;
+        let cCounter = columnCounter%2;
+        if ((rCounter%2 !== 0 && cCounter%2 === 0) || (rCounter%2 === 0 && cCounter%2 !== 0)){
           elem.classList.add("black");
           elem.classList.add("chess");
         }
@@ -133,44 +103,35 @@ validTextArea.addEventListener('blur', () => {
     {
       validP.removeChild(validP.firstChild)
     }
-  // console.log(validTextArea)
-  let arrayRezult;
-  let arr =  validTextArea.value.split(',');
-
-  // let regexpIp = /([0-9]{1,3}[\.]){3}[0-9]{1,3}/g;
-  // let regexpLink = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/g;
-  let regexpIp = /(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/g;
-  let regexpLink = /((http|https|ftp|ftps)\:\/\/)|(www\.)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/gi;
-
-// http://ru.stackoverflow.com, www.ru.stackoverflow.com, ru.stackoverflow.com,
-// 4444.11.11.11,
-// 192.168.1.1,
-// 1.1.1.1,
-// 115.42.150.37
-  let arrayIp = arr.filter(item => item.match(regexpIp));
-  let arrayLink = arr.filter(item => item.match(regexpLink)).map(
-    x => {
-      return x.replace(/http\:\/\/|https\:\/\//g,'');
-    });
-
-  if (arrayIp != null && arrayLink!= null){
-    arrayRezult = [ ...new Set([...arrayIp,...arrayLink])].sort();
-    console.log(arrayIp)
-    console.log(arrayLink)
-  }
-  else if (arrayIp == null){
-    arrayRezult = arrayLink
-  }
-  else arrayRezult = arrayIp
-
+  const arrayLinksText = [];
+  const arr =  validTextArea.value.split(',');
+  const regexpLink = /((http|https|ftp|ftps)\:\/\/)|(www\.)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/gi;
+  const regexpIp = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/g;
+  const arrayIp = arr.filter(item => item.match(regexpIp));
+  const arrayLink = arr.filter(item => item.match(regexpLink))
+  arrayIp.forEach((element) => {
+    let temp = {};
+    temp.text = element;
+    temp.link = `//${element}`;
+    arrayLinksText.push(temp); 
+  });
+  arrayLink.forEach((element) => {
+    let temp = {};
+    temp.text = element.replace(/http\:\/\/|https\:\/\//g,'')
+    temp.link = element;
+    arrayLinksText.push(temp); 
+  });
+  arrayLinksText.sort((prev, next) => {
+    if ( prev.text < next.text ) return -1;
+    else return 1;
+  });
   let wrapper = document.createElement("div");
-
-  arrayRezult.forEach(element => {
-    let li = document.createElement('li');
-    let a = document.createElement('a');
-    let linkText = document.createTextNode(element);
+  arrayLinksText.forEach(element => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    const linkText = document.createTextNode(element.text);
     a.appendChild(linkText);
-    a.href = '//'+element;
+    a.href = element.link;
     a.target = "_blank"
     element = a;
     // console.log(element)
@@ -181,13 +142,11 @@ validTextArea.addEventListener('blur', () => {
 });
 
 validButton.addEventListener('click', () => {
-  let arr =  regTextArea.value;
-  let input =  regP.value;
-
+  const arr =  regTextArea.value;
+  const input =  regP.value;
   let newArr = replaceAll(arr, '<', "&lt;")
   newArr = replaceAll(newArr, '>', "&gt;")
-  newArr = replaceAll(newArr, input, "<mark>"+"$&"+"</mark>")
-
+  newArr = replaceAll(newArr, input, "<mark>$&</mark>")
   validRezult.innerHTML = newArr;
 
   function replaceAll(str, find, replace) {

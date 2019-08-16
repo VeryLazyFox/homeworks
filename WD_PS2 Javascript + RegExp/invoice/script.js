@@ -36,35 +36,75 @@ const GOODS = [
     price: 3
   }
 ];
-fillTable(GOODS)
-let goods = GOODS;
+
 let sortCategory = true;
+let sortName = true;
+let filter = '';
+let searchName = '';
+
+const fillTable = () => {
+  let totalPrice = 0;
+  let newFilteredArray = GOODS;
+  if (filter) {
+    newFilteredArray = newFilteredArray.filter(item => item.category === filter)
+  }
+  if (searchName) {
+    newFilteredArray = newFilteredArray.filter(item => item.name.toLowerCase().match(searchName));
+  }
+  
+if (table.childNodes.length > 3)
+  {
+    table.removeChild(table.lastChild)
+    table.removeChild(table.lastChild)
+  }
+  const wrapper = document.createElement("tbody");
+  newFilteredArray.forEach(element => {
+    const row = wrapper.appendChild(document.createElement("tr"));
+    const category = row.appendChild(document.createElement("td"));
+    category.appendChild(document.createTextNode(element.category));
+    const name = row.appendChild(document.createElement("td"));
+    name.appendChild(document.createTextNode(element.name));
+    const amount = row.appendChild(document.createElement("td"));
+    amount.appendChild(document.createTextNode(element.amount));
+    const price = row.appendChild(document.createElement("td"));
+    price.appendChild(document.createTextNode(element.price));
+    totalPrice += element.price * element.amount;
+  });
+  const tfoot = document.createElement("tfoot");
+  tfoot.appendChild(document.createElement("th"));
+  tfoot.appendChild(document.createElement("th"));
+  const costText = tfoot.appendChild(document.createElement("th"));
+  costText.appendChild(document.createTextNode('Total:'));
+  const cost = tfoot.appendChild(document.createElement("th"));
+  cost.appendChild(document.createTextNode(totalPrice + '$'));
+  table.appendChild(wrapper);
+  table.appendChild(tfoot);
+  };
 
 category.addEventListener('click', () => {
-  fillTable(sortTable(goods, sortCategory));
+  fillTable(sortTable(GOODS, sortCategory, 'category'));
   sortCategory = !sortCategory;
 });
 
 nameTable.addEventListener('click', () => {
-  fillTable(sortTableName(goods, sortCategory));
-  sortCategory = !sortCategory;
+  fillTable(sortTable(GOODS, sortName, 'name'));
+  sortName = !sortName;
 });
 
 filterSelectCategory.addEventListener('change', (event) => {
-  let newArray = goods.filter(item => item.category == event.target.value);
-  fillTable(newArray);
+  filter = event.target.value
+  fillTable(GOODS);
 });
 
-filterInputName
-addEventListener('input', (event) => {
-  let newArray = goods.filter(item => item.name.match(event.target.value));
-  fillTable(newArray);
+filterInputName.addEventListener('input', (event) => {
+  searchName = event.target.value.toLowerCase()
+  fillTable(GOODS);
 });
 
-function sortTable(sortGoods, sort){
-  sortGoods.sort(function(a, b){
-    let categoryA=a.category.toLowerCase(), categoryB=b.category.toLowerCase()
-      if (categoryA < categoryB) //сортируем строки по возрастанию
+function sortTable(sortgoods, sort, sortСriterion){
+  sortgoods.sort((a, b) =>{
+    const categoryA=a[sortСriterion].toLowerCase(), categoryB=b[sortСriterion].toLowerCase()
+      if (categoryA < categoryB)
         {
           if (sort) return -1;
             else return 1;
@@ -76,54 +116,7 @@ function sortTable(sortGoods, sort){
       }
       return 0;
   })
-  return sortGoods;
+  return sortgoods;
 };
 
-function sortTableName(sortGoods, sort){
-    sortGoods.sort(function(a, b){
-    let categoryA=a.name.toLowerCase(), categoryB=b.name.toLowerCase()
-    if (categoryA < categoryB) //сортируем строки по возрастанию
-    {
-      if (sort) return -1;
-        else return 1;
-    }
-    if (categoryA > categoryB)
-    {
-      if (sort) return 1;
-        else return -1;
-    }
-    return 0;
-  })
-  return sortGoods;
-};
-
-function fillTable(goods){
-if (table.childNodes.length > 3)
-  {
-    table.removeChild(table.lastChild)
-    table.removeChild(table.lastChild)
-  }
-let totalPrice = 0;
-let wrapper = document.createElement("tbody");
-goods.forEach(element => {
-  let row = wrapper.appendChild(document.createElement("tr"));
-  let category = row.appendChild(document.createElement("td"));
-  category.appendChild(document.createTextNode(element.category));
-  let name = row.appendChild(document.createElement("td"));
-  name.appendChild(document.createTextNode(element.name));
-  let amount = row.appendChild(document.createElement("td"));
-  amount.appendChild(document.createTextNode(element.amount));
-  let price = row.appendChild(document.createElement("td"));
-  price.appendChild(document.createTextNode(element.price));
-  totalPrice += element.price;
-});
-let tfoot = document.createElement("tfoot");
-tfoot.appendChild(document.createElement("th"));
-tfoot.appendChild(document.createElement("th"));
-let costText = tfoot.appendChild(document.createElement("th"));
-costText.appendChild(document.createTextNode('Total:'));
-let cost = tfoot.appendChild(document.createElement("th"));
-cost.appendChild(document.createTextNode(totalPrice + '$'));
-table.appendChild(wrapper);
-table.appendChild(tfoot);
-};
+fillTable(GOODS)
