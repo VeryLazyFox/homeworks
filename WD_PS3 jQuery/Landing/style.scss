@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@mixin btn($bg: black, $fs: 18px, $ls: 0.5px, $clr: white, $fw: 400) {
+  padding: 10px 30px;
+  margin: 0;
+  text-align: center;
+  color: $clr;
+  font-size: $fs;
+  letter-spacing: $ls;
+  background-color: $bg;
+  text-decoration: none;
+  font-weight: $fw;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    color: #1abc9c;
+    background-color: white;
+  }
+  &:active{
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+.wrapper{
+  min-height:100vh; 
+  position:relative; 
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 1960px;
+  margin: 0 auto;
+  padding: 0;
+}  
+.header{
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: space-between;
+  &__logo{
+    font-weight: 700;
+    .text{
+      font-size: 65px;
+    }
+    .plus{
+      color: #1abc9c;
+      font-size: 70px;
+    }
+  }
+  .navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a{
+      text-decoration: none;
+      color:grey;
+      font-weight: 500;
+      margin-right: 35px;
+      &:last-child{
+        margin-right: 0;
+      }
+      &:hover{
+        color: darken(grey, 80%);
+      }
+    }
+  }
+}
+.iphone{
+  background-color: #1abc9c;
+  .phone{
+    padding: 65px 0;
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+    justify-content: space-between;
+    &__text{
+      width: 50%;
+      color: white;
+      font-size: 18px;
+      .text{
+        margin: 40px 0;
+      }
+    }
+    &__image{
+      margin-left: 175px;
+    }
+  }
+}
+.icons{
+  display: flex;
+  justify-content: center;
+  padding: 65px 0;
+  .item{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin-right: 20px;
+    &:last-child{
+      margin-right: 0;
+    }
+    &__icon{
+      border-radius: 50%;
+      background-color: #1abc9c;
+      color: white;
+      position: relative;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 25px;
+      i{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        font-size: 33px;
+      }
+    }
+    &__headline{
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #454343;
+    }
+  }
+}
+.contact{
+  padding: 85px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1abc9c;
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    &__headline{
+      margin-bottom: 55px;
+    }
+    .input,.textarea{
+      width: 100%;
+      font-size: 20px;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+    .textarea{
+      resize: none;
+    }
+    &-one-line{
+      width: 100%;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 10px;
+    }
+    .subscribe, .drink{
+      width: auto;
+      padding: 0;
+    }
+  }
+}
+h2{
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
+}
+button, .button{
+  $values:(bg: transparent, fs: 24px, clr: white);
+  @include btn($values...);
+  border: solid 2px white;
+  border-radius: 10px;
+}
+.button{
+  &-contact{
+    margin-bottom: 10px;
+  }
+}
+.top{
+  position: sticky;
+  right: 5%;
+  bottom: 5%;
+  height: 50px;
+  width: 50px;
+  background-color: lightred;
+}
+a {
+  cursor: pointer;
+}

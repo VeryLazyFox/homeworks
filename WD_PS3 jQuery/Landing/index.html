@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>N++</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__logo">
+          <p class="text">N<span class="plus">++</span></p>
+        </div>
+        <nav class="navigation">
+          <a href="#products">PRODUCTS</a>
+          <a id="aboutUsLink">ABOUT US</a>
+          <a href="#contact us">CONTACT US</a>
+        </nav>
+      </header>
+      <section id="products" class="iphone">
+        <div class="phone">
+          <div class="phone__image">
+            <img src="img/iPhone.png" alt="iPhone">
+          </div>
+          <div class="phone__text">
+            <h2 class="headline">Our awsome app is ready to use!</h2>
+            <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ex distinctio nisi ratione blanditiis. Nesciunt explicabo minus officiis dolorum mollitia commodi expedita magnam eveniet, fugit alias! Quod ab quis excepturi! </p>
+            <button>Buy now</button>
+          </div>
+        </div>
+      </section>
+      <section id="about-us" class="icons">
+        <div class="item">
+          <div class="item__icon">
+            <i class="fas fa-code icon"></i>
+          </div>
+          <p class="item__headline">Web development</p>
+          <p class="item__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis fugit laboriosam porro. Facere, illo perspiciatis?
+            Repellendus in sed corporis sapiente.
+          </p>
+        </div>
+        <div class="item">
+          <div class="item__icon">
+            <i class="fab fa-android"></i>
+          </div>
+          <p class="item__headline">Mobile development</p>
+          <p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorum ad cumque architecto placeat voluptate 
+            iste maxime optio molestiae quaerat.
+          </p>
+        </div>
+        <div class="item">
+          <div class="item__icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <p class="item__headline">Hightload</p>
+          <p class="item__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, nisi nulla exercitationem aspernatur consectetur
+            dolores, consequuntur magnam quam repudiandae maiores recusandae eligendi obcaecati debitis vero quasi laudantium dolorum 
+            assumenda eum?
+          </p>
+        </div>
+      </section>
+      <section id="contact us" class="contact">
+        <form class="form" action="">
+          <h2 class="form__headline">Contact us!</h2>
+          <input class="input" type="text" placeholder="Type here your name, please">
+          <input class="input" type="email" placeholder="Type here your email, please">
+          <input class="input" type="tel" placeholder="Type here your phone, please">
+          <textarea class="textarea" rows="3" placeholder="Ask your question"></textarea>
+          <input class="input" type="file" placeholder="Download here your file, please">
+          <input class="input" type="hidden" placeholder="it`s hidden">
+          <div class="form-one-line">
+            <input class="input subscribe" type="checkbox" id="subscribe" name="subscribe" value="newsletter">
+            <label for="subscribe">Subscribe to newsletter?</label>
+          </div>
+          <input class="input" type="password" placeholder="Type here your password, please ">
+          <div class="form-one-line">
+            <input class="input drink" id="tea" type="radio" name="drink" value="radio">
+            <label for="tea">Tea</label>
+            <input class="input drink" id="coffee" type="radio" name="drink" value="radio2">
+            <label for="coffee">Coffee</label>
+          </div>       
+          <input class="input" type="color">
+          <input class="input" type="date">
+          <input class="input" type="time">
+          <input class="input" type="datetime-local" placeholder="Type here datetime info">
+          <input class="input" type="mounth" placeholder="Type here mounth">
+          <input class="input" type="week" placeholder="Type here datetime week">
+          <input class="input" type="number" placeholder="Type here only number">
+          <input class="input" type="range" min="1" max="10">
+          <input class="input" type="search" placeholder="It`s search">
+          <input class="input" type="url" placeholder="It`s for url">
+          <input type="reset" class="button button-contact">
+          <input type="submit" class="button button-contact" value="Send email">
+          <input type="button" class="button button-contact" value="Simple button">
+        </form>
+      </section>
+    </div>
+    <div class="top"></div>
+  </body>
+  <script>
+    
+
+    $(function(){
+        $(".top").bind('click', function(e){
+            e.preventDefault();
+            $('body,html').animate({scrollTop: 0}, 400);    
+        });
+
+        $("#aboutUsLink").bind('click', function(e){
+            e.preventDefault();
+            let WhereToMove = $("#about-us");
+          // using the 'html,body' will move the full page, to move a div use his id
+          $('html,body').animate({
+            //TODO: если высота > h екрана !- ; else -
+              scrollTop: WhereToMove.position().top - (WhereToMove.height() /2)
+            }, 400);   
+        });
+    });
+
+    
+
+
+  //   const dataArray = ["user1", "user2", "user3", "user4", "user5"]
+  //   const data = [
+  //     {
+  //       name: "user1",
+  //       icon: "https://img.icons8.com/bubbles/2x/user.png"
+  //     },
+  //     {
+  //       name: "user2",
+  //       icon: "https://www.clipartmax.com/png/middle/258-2582267_circled-user-male-skin-type-1-2-icon-male-user-icon.png"
+  //     },
+  //     {
+  //       name: "user3",
+  //       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1bO1bZic2xef-jbOKXGmDZkYy6kFscVxNh_j44IdxYZgBN4xJ"
+  //     },
+  //     {
+  //       name: "user4",
+  //       icon: "https://img.icons8.com/bubbles/2x/user.png"
+  //     },
+  //     {
+  //       name: "user5",
+  //       icon: "https://www.clipartmax.com/png/middle/258-2582267_circled-user-male-skin-type-1-2-icon-male-user-icon.png"
+  //     },
+  //     {
+  //       name: "user6",
+  //       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1bO1bZic2xef-jbOKXGmDZkYy6kFscVxNh_j44IdxYZgBN4xJ"
+  //     },
+      
+  //   ]
+  //   const wrapper = document.createElement("ul");
+  //   wrapper.classList.add("list");
+  //   wrapper.classList.add("list-active");
+  //   for (let i=0; i < data.length; i++){
+  //     const elem = wrapper.appendChild(document.createElement("li"));
+  //     const elemImage = elem.appendChild(document.createElement("img"));
+  //     elemImage.src = data[i].icon
+  //     elemImage.width = 25;
+  //     elemImage.height = 25;
+  //     const elemSpan = elem.appendChild(document.createElement("span"));
+  //     elemSpan.appendChild(document.createTextNode(data[i].name));
+  //     elem.appendChild(elemSpan);
+  //     elem.classList.add("list__item");
+  //   }
+  //   options.appendChild(wrapper)
+  // $(".selected").click(function() {
+  //     $(".options ul").toggle();
+  //     $(".selected a").addClass("input-active");
+  // });
+
+  // $(".drop-down .options ul li").click(function(e) {
+  //     console.log(e)
+  //     var text = $(this).html();
+  //     $(".selected span").html(text);
+  //     $(".list").hide();
+  //     $(".selected a").removeClass("input-active");
+      
+  // }); 
+
+  // $(document).bind('click', function(e) {
+  //     var $clicked = $(e.target);
+  //     // console.log(e.target)
+  //     if (! $clicked.parents().hasClass("drop-down")) {
+  //       $(".list").hide();
+  //       $(".selected a").removeClass("input-active");
+  //     }
+  // });
+  </script>
+</html>

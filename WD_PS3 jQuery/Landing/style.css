@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+a {
+  cursor: pointer;
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  max-width: 1960px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.header__logo {
+  font-weight: 700;
+}
+.header__logo .text {
+  font-size: 65px;
+}
+.header__logo .plus {
+  color: #1abc9c;
+  font-size: 70px;
+}
+.header .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .navigation a {
+  text-decoration: none;
+  color: grey;
+  font-weight: 500;
+  margin-right: 35px;
+}
+.header .navigation a:last-child {
+  margin-right: 0;
+}
+.header .navigation a:hover {
+  color: black;
+}
+
+.iphone {
+  background-color: #1abc9c;
+}
+.iphone .phone {
+  padding: 65px 0;
+  display: flex;
+  align-items: center;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.iphone .phone__text {
+  width: 50%;
+  color: white;
+  font-size: 18px;
+}
+.iphone .phone__text .text {
+  margin: 40px 0;
+}
+.iphone .phone__image {
+  margin-left: 175px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  padding: 65px 0;
+}
+.icons .item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin-right: 20px;
+}
+.icons .item:last-child {
+  margin-right: 0;
+}
+.icons .item__icon {
+  border-radius: 50%;
+  background-color: #1abc9c;
+  color: white;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 25px;
+}
+.icons .item__icon i {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 33px;
+}
+.icons .item__headline {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #454343;
+}
+
+.contact {
+  padding: 85px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1abc9c;
+}
+.contact .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+.contact .form__headline {
+  margin-bottom: 55px;
+}
+.contact .form .input, .contact .form .textarea {
+  width: 100%;
+  font-size: 20px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+.contact .form .textarea {
+  resize: none;
+}
+.contact .form-one-line {
+  width: 100%;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+.contact .form .subscribe, .contact .form .drink {
+  width: auto;
+  padding: 0;
+}
+
+h2 {
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+button, .button {
+  padding: 10px 30px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: 400;
+  outline: none;
+  cursor: pointer;
+  border: solid 2px white;
+  border-radius: 10px;
+}
+button:hover, .button:hover {
+  color: #1abc9c;
+  background-color: white;
+}
+button:active, .button:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+.button-contact {
+  margin-bottom: 10px;
+}
+.top{
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  height: 50px;
+  width: 50px;
+  background-color: lightgreen;
+}
+/*# sourceMappingURL=style.css.map */

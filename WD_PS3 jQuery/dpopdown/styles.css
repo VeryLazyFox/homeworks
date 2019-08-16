@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: black;
+  box-sizing: border-box;
+}
+.list__item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.list__item img, span img{
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.drop-down {
+  position: absolute;
+  left: 10px;
+  top: 40px;
+  min-width: 250px;
+  border: 1px solid transparent;
+}
+.selected a {
+  display:block; 
+  padding-right:20px; 
+  border:1px solid lightgrey; 
+  border-radius:2px;
+  text-decoration:none;
+  position: relative;
+  border-radius: 5px;
+  color: grey;
+  width: 100%;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+}
+.selected a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px;
+  border-color: black transparent transparent transparent;
+  top: calc(50% - 3px);
+  right: 5px;
+}
+.selected a span{
+  cursor: pointer; 
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  color: grey;
+}
+.option {
+  position: relative; 
+  width: 100%;
+}
+.options ul {
+  background: #fff none repeat scroll 0 0;
+  display: none;
+  list-style: none; 
+  padding: 0; 
+  position: absolute; 
+  left: 0; 
+  top: 40px; 
+  width: auto; 
+  min-width: 170px;
+  border: 1px solid #d7d7d7;
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+}
+.options ul li:hover{
+  background-color: lightgrey;
+}
+.input-active{
+  border-style: solid !important;
+  border-color: lightblue !important;
+  border-width: 1px 1px 0 1px !important;
+}
+.list-active{
+  border-style: solid !important;
+  border-color: lightblue !important;
+  border-width: 0px 1px 1px 1px !important;   
+}
+
