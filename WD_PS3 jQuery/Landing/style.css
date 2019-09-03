@@ -190,6 +190,7 @@ button:active, .button:active {
   bottom: 5%;
   height: 50px;
   width: 50px;
-  background-color: lightgreen;
+  font-size: 50px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

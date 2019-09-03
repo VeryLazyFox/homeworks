@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
   </head>
   <body>
     <div class="wrapper">
@@ -17,9 +15,9 @@
           <p class="text">N<span class="plus">++</span></p>
         </div>
         <nav class="navigation">
-          <a href="#products">PRODUCTS</a>
+          <a id="productsLink">PRODUCTS</a>
           <a id="aboutUsLink">ABOUT US</a>
-          <a href="#contact us">CONTACT US</a>
+          <a id="contactUsLink">CONTACT US</a>
         </nav>
       </header>
       <section id="products" class="iphone">
@@ -64,7 +62,7 @@
           </p>
         </div>
       </section>
-      <section id="contact us" class="contact">
+      <section id="contact-us" class="contact">
         <form class="form" action="">
           <h2 class="form__headline">Contact us!</h2>
           <input class="input" type="text" placeholder="Type here your name, please">
@@ -100,95 +98,9 @@
         </form>
       </section>
     </div>
-    <div class="top"></div>
+    <div class="top" id="top">
+      <i class="far fa-arrow-alt-circle-up"></i>
+    </div>
+    <script src="script.js"></script>
   </body>
-  <script>
-    
-
-    $(function(){
-        $(".top").bind('click', function(e){
-            e.preventDefault();
-            $('body,html').animate({scrollTop: 0}, 400);    
-        });
-
-        $("#aboutUsLink").bind('click', function(e){
-            e.preventDefault();
-            let WhereToMove = $("#about-us");
-          // using the 'html,body' will move the full page, to move a div use his id
-          $('html,body').animate({
-            //TODO: если высота > h екрана !- ; else -
-              scrollTop: WhereToMove.position().top - (WhereToMove.height() /2)
-            }, 400);   
-        });
-    });
-
-    
-
-
-  //   const dataArray = ["user1", "user2", "user3", "user4", "user5"]
-  //   const data = [
-  //     {
-  //       name: "user1",
-  //       icon: "https://img.icons8.com/bubbles/2x/user.png"
-  //     },
-  //     {
-  //       name: "user2",
-  //       icon: "https://www.clipartmax.com/png/middle/258-2582267_circled-user-male-skin-type-1-2-icon-male-user-icon.png"
-  //     },
-  //     {
-  //       name: "user3",
-  //       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1bO1bZic2xef-jbOKXGmDZkYy6kFscVxNh_j44IdxYZgBN4xJ"
-  //     },
-  //     {
-  //       name: "user4",
-  //       icon: "https://img.icons8.com/bubbles/2x/user.png"
-  //     },
-  //     {
-  //       name: "user5",
-  //       icon: "https://www.clipartmax.com/png/middle/258-2582267_circled-user-male-skin-type-1-2-icon-male-user-icon.png"
-  //     },
-  //     {
-  //       name: "user6",
-  //       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1bO1bZic2xef-jbOKXGmDZkYy6kFscVxNh_j44IdxYZgBN4xJ"
-  //     },
-      
-  //   ]
-  //   const wrapper = document.createElement("ul");
-  //   wrapper.classList.add("list");
-  //   wrapper.classList.add("list-active");
-  //   for (let i=0; i < data.length; i++){
-  //     const elem = wrapper.appendChild(document.createElement("li"));
-  //     const elemImage = elem.appendChild(document.createElement("img"));
-  //     elemImage.src = data[i].icon
-  //     elemImage.width = 25;
-  //     elemImage.height = 25;
-  //     const elemSpan = elem.appendChild(document.createElement("span"));
-  //     elemSpan.appendChild(document.createTextNode(data[i].name));
-  //     elem.appendChild(elemSpan);
-  //     elem.classList.add("list__item");
-  //   }
-  //   options.appendChild(wrapper)
-  // $(".selected").click(function() {
-  //     $(".options ul").toggle();
-  //     $(".selected a").addClass("input-active");
-  // });
-
-  // $(".drop-down .options ul li").click(function(e) {
-  //     console.log(e)
-  //     var text = $(this).html();
-  //     $(".selected span").html(text);
-  //     $(".list").hide();
-  //     $(".selected a").removeClass("input-active");
-      
-  // }); 
-
-  // $(document).bind('click', function(e) {
-  //     var $clicked = $(e.target);
-  //     // console.log(e.target)
-  //     if (! $clicked.parents().hasClass("drop-down")) {
-  //       $(".list").hide();
-  //       $(".selected a").removeClass("input-active");
-  //     }
-  // });
-  </script>
 </html>
