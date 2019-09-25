@@ -1,4 +1,3 @@
-const dataArray = ["user1", "user2", "user3", "user4", "user5"]
 const data = [
   {
     name: "user1",
@@ -26,38 +25,33 @@ const data = [
   },
   
 ]
-const wrapper = document.createElement("ul");
-wrapper.classList.add("list");
-wrapper.classList.add("list-active");
-for (let i=0; i < data.length; i++){
-  const elem = wrapper.appendChild(document.createElement("li"));
-  const elemImage = elem.appendChild(document.createElement("img"));
-  elemImage.src = data[i].icon
-  elemImage.width = 25;
-  elemImage.height = 25;
-  const elemSpan = elem.appendChild(document.createElement("span"));
-  elemSpan.appendChild(document.createTextNode(data[i].name));
-  elem.appendChild(elemSpan);
-  elem.classList.add("list__item");
-}
-options.appendChild(wrapper)
-$(".selected").click(function() {
-  $(".options ul").toggle();
-  $(".selected a").addClass("input-active");
-});
 
-$(".drop-down .options ul li").click(function(e) {
-  let text = $(this).html();
-  $(".selected span").html(text);
-  $(".list").hide();
-  $(".selected a").removeClass("input-active");
-  
-}); 
+$( document ).ready(function() {
+  $("#options").append($("<ul>").attr("class", "list list-active"));
+  data.forEach((element) => {
+    $(".list").append($("<li>").attr("class", "list__item")
+    .append($("<img>").attr("src", element.icon).height(25).width(25))
+    .append($("<span>").text(element.name)));
+  })
 
-$(document).bind('click', function(e) {
-  let $clicked = $(e.target);
-  if (! $clicked.parents().hasClass("drop-down")) {
-    $(".list").hide();
+  $(".selected").click(function() {
+    $(".options ul").toggle(200);
+    $(".selected a").addClass("input-active");
+  });
+
+  $(".list__item").click(function(e) {
+    const text = $(this).html();
+    $(".selected span").html(text);
+    $(".list").hide(200);
     $(".selected a").removeClass("input-active");
-  }
-});
+    
+  }); 
+
+  $(document).click(function(e) {
+    const $clicked = $(e.target);
+    if (! $clicked.parents().hasClass("drop-down")) {
+      $(".list").hide(200);
+      $(".selected a").removeClass("input-active");
+    }
+  });
+})

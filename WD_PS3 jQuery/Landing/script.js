@@ -1,17 +1,17 @@
 const animationTime = 400
 const scrollToElement = (name) => {
   const whereToMove = $(`#${name}`);
-  const windowHeight = $(window).height();
-  $('html,body').animate({
-      scrollTop: windowHeight < whereToMove.height() ?
+  const windowHeight = $(window).outerHeight();
+  $('html').animate({
+      scrollTop: windowHeight < whereToMove.outerHeight() ?
         whereToMove.position().top
         :
-        (whereToMove.position().top - (windowHeight - whereToMove.height())/2 )
+        (whereToMove.position().top - (windowHeight - whereToMove.outerHeight())/2 )
     }, animationTime);  
 }
 
 $("#top").click(() => {
-  $('body,html').animate({scrollTop: 0}, animationTime);    
+  $('html').animate({scrollTop: 0}, animationTime);    
 });
 $("#aboutUsLink").on('click', function() {scrollToElement('about-us')});
 $("#contactUsLink").on('click', function() {scrollToElement('contact-us')});

@@ -79,7 +79,7 @@
 .input-active{
   border-style: solid !important;
   border-color: lightblue !important;
-  border-width: 1px 1px 0 1px !important;
+  /* border-width: 1px 1px 0 1px !important; */
 }
 .list-active{
   border-style: solid !important;
