@@ -35,14 +35,14 @@ $( document ).ready(function() {
   })
 
   $(".selected").click(function() {
-    $(".options ul").toggle(200);
+    $(".options ul").slideToggle(30);
     $(".selected a").addClass("input-active");
   });
 
   $(".list__item").click(function(e) {
     const text = $(this).html();
     $(".selected span").html(text);
-    $(".list").hide(200);
+    $(".list").slideToggle(30);
     $(".selected a").removeClass("input-active");
     
   }); 
@@ -50,7 +50,7 @@ $( document ).ready(function() {
   $(document).click(function(e) {
     const $clicked = $(e.target);
     if (! $clicked.parents().hasClass("drop-down")) {
-      $(".list").hide(200);
+      $(".list").slideToggle(30);
       $(".selected a").removeClass("input-active");
     }
   });
